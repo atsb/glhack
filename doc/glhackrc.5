@@ -1,0 +1,248 @@
+.\" -*-nroff-*-
+.TH glhackrc 5 "January 2003"
+.SH NAME
+.PP
+glhackrc \- Configuration file for the glHack game
+.SH DESCRIPTION
+The glHack configuration file stores settings for both standard
+NetHack options (like "hilite_pet") and glHack-specific options 
+(like "keyrepeat").  Options that take a value will be shown here with
+example values.
+.PP
+The config file is always
+.B ~/.glhackrc
+.SH FORMAT
+The format is a superset of the standard NetHack configuration file
+format (.nethackrc).  Lines beginning with a hash (`#') are comments
+and are ignored.  Blank lines are also ignored.  The remaining lines
+have the form:
+
+.RS
+KEYWORD=data...
+.RE
+
+(The keywords are uppercase as a matter of convention, but don't need
+to be).  The two main keywords are
+.B OPTIONS
+and
+.BR GL_OPTIONS .
+The first is used for standard NetHack options, and the latter is new
+and is used for glHack-specific options.
+NetHack also defines some additional keywords: DUNGEON, EFFECTS,
+MONSTERS, TRAPS, and BOULDER, which have little relevance to glHack
+since they only control the text map view.
+.PP
+The data after the `=' sign depends on the keyword.
+For both OPTIONS and GL_OPTIONS, the data consists of one or more
+option names (possibly with values) separated with commas (`,').
+A colon (`:') is used in between an option name and its value.
+For example:
+
+.RS
+GL_OPTIONS=windowed,depth:32
+.RE
+
+contains two glHack options: "windowed" (without any value), and
+"depth" (with the value "32").
+.PP
+Options can be booleans, integers, or strings.
+Boolean options are enabled simply by including their name, and are
+disabled by using an exclamation mark (`!') before their name (e.g.
+"!windowed").  String values should not be quoted.
+.SH GLHACK OPTIONS
+These options must appear after the
+.IR GL_OPTIONS " keyword:"
+.TP
+.B mode:1024x768
+Use the specified video mode.  Normally glHack will
+autodetect the mode, but using this option will
+override that.  The default value (when all else
+fails) is 800x600.
+.TP
+.B depth:32
+Video depth (bits per pixel).  Possible values are
+15, 16, 24 and 32, and 8 when using the software
+renderer.  The default value is autodetected.
+.TP
+.B windowed
+Open in a window.  Default is fullscreen.
+.TP
+.B gamma:+1
+Gamma correction value.  Range is -5 to +5, where
+positive values make the screen brighter, and
+negative values make it darker.  Zero is the
+default value (no adjustment).
+.TP
+.B jailsize:60
+Sets the "jail" size, which is a percentage of
+the size of the screen.  Usable range is 1 to 100.
+
+The jail controls when the map window scrolls: when
+set to 1, the player will always be centered on the screen.
+and the map always scrolls when moving.  When set to
+100, the map will only scroll if the player tries
+to move off the edge of the screen.
+
+This option is ignored when "jumpscroll" is enabled
+(see below).
+.TP
+.B defzoom:16
+Sets the default zoom factor, in pixels.  Use 0 to
+make it the same as the tile size (i.e. 1:1 scale),
+which is the default.  Use 8 to mean the text-mode
+view.
+.TP
+.B keyrepeat:never  
+Enables/disables keyboard auto-repeat.  Use "never"
+to disable it everywhere, "always" to enable it
+everywhere, and "partial" is a compromise which
+enables auto-repeat for scrolling windows (etc) but
+disables it for game commands (moving, etc).
+.TP
+.B altprev
+Enables the alternate previous history (CTRL-P)
+mode, which is more like the TTY version: the lines
+are limited to the message window, and you don't
+need to press CTRL-O, space or escape to dismiss
+the window.
+.TP
+.B prevstep:3
+Number of lines to step through the previous
+message history.  For altprev
+mode, using the same value as the message window
+height (vary_msgcount) gives the best results.
+That is the default for altprev mode,
+for normal mode the default is 1.
+.TP
+.B reformat
+Causes text windows that don't fit across the
+screen to be reformatted.  The default is off.
+.TP
+.B shrinkwrap
+Shrinks the fonts on text windows if they don't
+fit across the screen.  It's mainly an alternative
+to the `reformat' option.  Default is off.
+.TP
+.B flipping
+Flips monster tiles horizontally so the direction
+they face on-screen matches the direction they are
+moving in.  NOTE: this only works in GL mode, and
+it doesn't work with the Isometric tileset.
+.TP
+.B jumpscroll
+Scrolls the map window in large jumps, rather than
+single steps, which improves speed when using the
+software renderer.  When enabled, the standard
+NetHack option "scroll_margin" will be used to
+decide when to scroll.
+.TP
+.B invisfx
+Draws monsters which are invisible (but can be
+seen by the player) using alpha blending (i.e.
+translucently).  Default is off.
+.SH NETHACK OPTIONS
+Note that this manpage only documents a few standard NetHack options
+(ones particularly relevant to glHack).
+There are many more available, please consult the NetHack Guidebook
+for the complete list.
+.PP
+These options must appear after the
+.IR OPTIONS " keyword:"
+.TP
+.B windowtype:SDL
+The windowtype option is very important for glHack.
+This is the only way to select between the OpenGL renderer and the
+pure software renderer.
+
+The
+.\" To select the OpenGL renderer, use the
+.RB ` GL '
+value (without quotes) selects the OpenGL renderer.
+This is the default.
+
+The
+.\" and to select the software renderer, use the
+.RB ` SDL '
+value selects the software renderer.
+.TP
+.B tile_height:64
+Choose the tileset to use.  Allowable values are 16, 32 and 64.
+The 16x16 tiles are the same as the standard NetHack 3.4.0 ones.
+The other tiles have been created (from many sources) specially for
+glHack.  The value `64' selects the Isometric (pseudo-3D) tileset.
+The default is 32.
+.PP
+.nf
+.B font_size_map:20
+.\".TP
+.B font_size_message:8
+.\".TP
+.B font_size_status:14
+.\".TP
+.B font_size_menu:22
+.\".TP
+.fi
+.B font_size_text:22
+.TP
+\ 
+These options set the font size used in various windows on the screen.
+Each number represent the font's height, and there are currently four
+fonts available: 8, 14, 20 and 22.  All fonts use the IBM VGA
+character set (cp437), and the `IBMgraphics' option can be enabled for
+the text map view.
+
+The default for font_size_map is 14, and for font_size_message is 20.
+The default values for the rest will be copied from font_size_message
+(allowing them to all share the same size).
+.TP
+.B vary_msgcount:4
+Sets the number of lines in the message window.  Acceptable range is
+between 2 and 8.  The default is 3.
+.TP
+.B scroll_margin:4
+When the glHack option "jumpscroll" is enabled, the value of
+scroll_margin is used to determine when to scroll.  It specifies
+(roughly) the number of tiles to leave at the edge of the screen,
+so when the player crosses that line, the map scrolls.
+.TP
+.B splash_screen
+Can be used to enable/disable the initial splash screen.
+It is enabled by default.
+.SH EXAMPLES
+Here is an example configuration file:
+.PP
+.nf
+#
+# glHack Config file
+#
+OPTIONS=windowtype:SDL
+OPTIONS=tile_height:32,vary_msgcount:3
+OPTIONS=font_size_message:20,font_size_map:14
+OPTIONS=dogname:Woofer,catname:Morris
+OPTIONS=horsename:Tally,fruit:mango
+OPTIONS=color,hilite_pet,safe_pet
+OPTIONS=verbose,lit_corridor,confirm
+OPTIONS=pickup_burden:U,pickup_types:$?!/="
+OPTIONS=!showexp,showscore,splash_screen,!time
+OPTIONS=toptenwin,tombstone,menustyle:partial
+OPTIONS=!prayconfirm,pushweapon,disclose:yi ya yv
+#
+GL_OPTIONS=!windowed,keyrepeat:always
+GL_OPTIONS=altprev,prevstep:3
+GL_OPTIONS=flipping,!jumpscroll
+.fi
+.SH "SEE ALSO"
+.PP
+.BR glhack (6)
+.BR nethack-guidebook (6)
+.PP
+The glHack Homepage:
+.UR http://glhack.sourceforge.net/
+http://glhack.sourceforge.net/
+.UE
+.PP
+The official NetHack page:
+.UR http://www.nethack.org/
+http://www.nethack.org/
+.UE
+

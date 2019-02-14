@@ -1,0 +1,934 @@
+
+glHack CHANGELOG
+================
+
+2018 Apr 19: Released version 1.3.
+             
+2004 Jun 25: Released version 1.2.
+
+2004 Jun 24: Andrew: fixed C++ compile problems with the code in the
+             tools/edtile directory.
+
+2004 Jun 10: Andrew: updated README.GL with AUTHORS section.
+
+2004 Jun 09: James: Updated the man version of the nethack guidebook to 
+             the one in nethack 3.4.3.
+
+2004 Apr 28: Andrew: the make install and update targets will delete
+             the 'glhack' script that used to be in /usr/games/ dir,
+             because the location has changed.
+
+2004 Apr 19: James: Updated version 1.1 to nethack 3.4.3.
+
+             Pressing TAB switches between tile map and ascii map, in
+             addition to pressing END
+
+             Install location for glhack script was changed from
+             $(PREFIX)/games to $(PREFIX)/bin.
+
+2004 Apr:    glHack welcomes a new developer: James Bentler.
+
+------------------------------------------------------------------------
+
+2002 Jan 08: Released version 1.1.
+
+2002 Jan 06  Fixed some remaining issues (wrong manpage dir).
+
+2002 Jan 04  Man pages are now installed by "make install" and
+             "make update".
+
+             Added "debian_install" and "mandrake_install" targets
+             which install glHack into the menu system.
+
+2002 Jan 02  Changed the default value of these standard NetHack
+             options to TRUE: color, hilite_pet, lit_corridor, and
+             toptenwin.
+
+2003 Jan 01  Finished tidying of 3D code: lighting is now implemented
+             (but not well tested).  May the 3D code R.I.P.
+
+             Fixed probably the last bug causing unread messages to be
+             cleared without a [MORE] prompt -- this one typically
+             occurred when eating from a tin (losing the "It smells
+             like XXXX" message).
+
+2002 Dec 30  Finished man pages.
+
+             Started tidying up the 3D prototype.  Made monsters and
+             the player face the direction they travel in (roughly).
+             Fixed hardcoded model dir.  Improved the camera view.
+
+2002 Dec 29  More manpage work -- nearly done.
+
+2002 Dec 27  Converted the NetHack 3.4.0 Guidebook into standard MAN
+             format.
+
+2002 Dec 23: Created the (long overdue !) "loadppm" program which
+             converts a PPM image into a .TXT tileset file.
+
+2002 Dec 21: Continued working on man pages.
+
+             Fixed a serious bug with new autodetection code when no
+             video mode was detected.
+
+             Fixed role handling code (including sys/unix/unixmain.c)
+             to handle random things (like "-p @" and "-r random")
+             from the command-line (or config file) properly.
+             
+2002 Dec 19: More work on manual pages.
+
+2002 Dec 16: New code to autodetect the video mode & depth (which only
+             kicks in when the user hasn't overridden them via the
+             config file or command line).  It tries to be smart when
+             multiple resolutions are available (though this probably
+             doesn't happen under X11).  
+
+2002 Dec 15: Made unlit corridors blue in text mode view.  Also
+             removed a small kludge in gl_map.c that forced stairs to
+             white (defsyms[] has been updated instead).
+
+             Made the unlit and lit corridor tiles in the 32x32 and
+             48x64 sets a blue-ish color.
+
+             Replaced ASCII numbers like 7 or 16 in the code using the
+             C() macro: C('g') and C('p') respectively.
+
+             Fixed the small bug where pressing ^P (non-altprev mode)
+             when glHack had just started would show blank lines at
+             the top, then pressing ^P again would make the window
+             jump back.
+
+             Found and fixed a bug in the software renderer, causing
+             gamma to be applied _twice_ to the shrunk-down view.
+
+             For 8-bit fullscreen software mode, implemented fading
+             out the logo using the palette (much smoother !).
+
+2002 Dec 14: Slightly brightened up the "floor of a room", "corridor"
+             and "lit corridor" tiles in the 32x32 and 48x64 sets.
+
+             Brightened up text and window background colors.
+
+             Made gamma more fine-tuned, the range is now -5 to +5
+             instead of -2 to +2.
+
+             Added "Restoring game file..." to the list of important
+             messages.  Startup is now like the TTY version.
+
+2002 Dec 13: Re-checked the tile facing info, fixing quite a few
+             monsters (especially in the 16x16 set).
+
+             Pressing ESCAPE when [MORE] is displayed will now prevent
+             further messages of the current turn from displaying
+             [MORE].  The TTY version also stops displaying those
+             messages, but I don't go that far.
+
+             Made sure certain "must see" messages will be seen (and
+             acknowledged with [MORE]).  So far this only includes
+             death messages ("You die", etc) and some tricky messages.
+
+             Fixed a bug with the flipping option that caused some
+             characters in the text mode view (like the `@') to be
+             drawn back-to-front.
+
+2002 Dec 12: Added new status flag "Held", shown when a monster has
+             grabbed you (doesn't include being swallowed).  The
+             original patch was by Roderick Schertler.
+
+             Fixed the tile facing information for a few monsters.
+
+             Began work on manual pages: glhack(6) and glhackrc(5).
+
+2002 Dec 09: Fixed toplevel makefile so that a plain "make" will make
+             everything (i.e. what "make all" did before).
+
+             Moved the tile facing information into external files:
+             glface16.lst and glface32.lst, with code to load them
+             when starting up.
+
+             Made `extra_shapes' array size dependent on the type of
+             window (256 for the map window, 10 for all other
+             windows).
+
+             Stop drawing petmarks on worm tails.
+
+2002 Dec 08: In util/Makefile, changed YACC and LEX defines to use
+             bison and flex respectively.  Fixes a compile problem on
+             Mandrake 9.0.
+
+             In src/Makefile, added -L/usr/X11R6/lib to the WINGLLIB
+             definition.  Fixes a link problem on Mandrake 9.0.
+             (These changes might break on other distros, but Debian
+             is still OK).
+
+             In gl_unit.c, enabled LINE_SMOOTH mode.  Fixes a problem
+             of disappearing lines (blue map border and white cursor)
+             with a few (probably buggy) OpenGL drivers.
+
+2002 Nov 05: Made all the non-fire zap textures, and fixed the 
+             diagonal zaps.
+
+2002 Nov 04: Implemented `R' model flag (for rotating gems), and `F'
+             model flag (doesn't draw the floor).
+             
+             Better midground/foreground handling, including `M' flag
+             for midgrounds that can coexist with foregrounds (like
+             the "doorway" model).
+
+             Created some extra floor textures (mines, beach, water,
+             ice, lava, sokoban, gehennom).
+
+2002 Nov 03: Made some gnomish-mine wall models.  Made the renderer
+             not draw the sides of walls which are hidden (i.e. in
+             between two solid walls).
+
+             Greatly improved the camera test code (sphere_in_camera),
+             speeding rendering up quite a bit, and fixing all the
+             glitches that were there before.
+
+2002 Oct 22: Made a "gold piece" model.  Made a spiked pit.  Made wall
+             models for sokoban, knox and gehennom (just re-colored).
+
+2002 Oct 21: Made a gem model.  Made a fountain model.  Added support
+             for materials to the 3D code.
+
+2002 Oct 20: Fixed up makefiles, config.h, win/gl code (etc) to
+             support a new windowtype: "GL3D", which enables the real
+             3D renderer.  Made the 3D renderer not draw tiles that
+             are off the screen.
+
+2002 Oct 19: Created zap 3D model.  Created pit model.  Fixed the
+             create_md2 program to accept proper skin coordinates, and
+             to make normals unit length.  Implemented an "in pit"
+             effect.  Created a down-staircase model.  Created open
+             and closed doors, and doorway models.
+
+2002 Oct 17: 3D renderer: created love heart model, and wrote the code
+             to draw them (above pets).  Created up-staircase model.
+             Implemented a levitation effect.
+
+2002 Oct 16: Been doing some work on a real 3D renderer.  Very
+             preliminary stuff.  At the moment, it can load MD2 model
+             files and PNG skins, render them, and the mouse moves the
+             camera around.  Today I added support for loading light,
+             material and model specs from external files.  Also fixed
+             renderer to cull back facing triangles.
+
+2002 Oct 15: Improved the buildspec tool to handle new keywords:
+             "light", "scale", "rotate" and "flags".  Flags are
+             represented as letters from A to Z, or "-" if none.
+
+------------------------------------------------------------------------
+
+2002 Oct 13: Released version 1.0.
+
+2002 Oct 12: Fixed top makefile, which was missing gltile64.png.
+
+             Tested compilation using GCC 3.2.  Worked fine.
+
+2002 Oct 11: Tidied some stuff up, getting ready for release.
+
+2002 Oct 03: Software mode now draws the RIP image nicer, storing the
+             image in truecolor rather than palettising it.
+
+             Fixed RIP name scaling in GL mode (broke with recent
+             changes).
+
+2002 Oct 02: Added support for panning the map window using ALT plus
+             the cursor keys.
+
+             Implemented being able to scroll text, menu and map
+             windows using the mouse.  For menu and map windows, the
+             ALT key needs to be pressed.  Also, the mouse pointer
+             changes shape to an arrow when ready to scroll.
+
+             Fixed up "trap door" and teleport tiles in the isometric
+             3D tileset, which had a blue-green border.
+
+2002 Oct 01: Created some mouse cursors (gl_image.c).
+
+2002 Sep 30: Fixed raven "flying backwards" in flipping mode.
+
+2002 Sep 29: Added proper `flags' field to each tile, improving the
+             TILE_FLIPX kludge.
+             
+             Added support for drawing certain monsters 50%
+             translucent (invisible but seen).  New option `invisfx'
+             used to enable this (it didn't look as good as expected).
+             
+             Made the renderer draw all background tiles (floors)
+             first, which helps to prevent clipping problems with the
+             isometric 3D tileset, and should be faster in GL too.
+
+             Fixed up background glyph handling in gl_map.c, in
+             particular traps now work properly.
+
+2002 Sep 28: Tidied up my buckled boots.  Improved the isometric 3D
+             drawbridge tiles.
+
+2002 Sep 27: Improved these 32x32 tiles:
+                 meat stick, meat ring, C & K rations.
+
+2002 Sep 26: Made a better 32x32 "eucalyptus leaf" tile.
+
+             Imported the improved 32x32 tiles into the 48x64
+             isometric tileset.
+
+             Made menu windows accept mouse clicks for selecting.
+
+             Also fixed menus so that you can't exit using Enter/Space
+             keys while a count is in progress.  Handles menus with
+             only one choice by applying the count to it.
+
+2002 Sep 21: Using a new floor tile used in "tower" levels.
+
+             Made sure that tiles that are underneath a completely
+             solid tile (e.g. floor under a solid wall) do not get
+             drawn (a small optimisation).
+
+2002 Sep 14: Fixed the `makesets' program.
+
+2002 Sep 11: Improved these 32x32 tiles:
+                shimmering dragon scale & mail.
+                robe.  boomerang.  piece of cloth.
+                mummy wrapping.  web.  buckled boots.
+
+2002 Sep 10: Improved the 32x32 tiles for dingo, coyote, panther and
+             lynx.
+
+2002 Aug 30: Improved the remaining 32x32 gem tiles.
+
+2002 Aug 29: More work on tile tools.
+
+2002 Aug 26: Reworked the tileset code (in tools/edtile), making the
+             colormap handling more sane.
+
+             Imported some 32x32 tiles from AllegroHack.
+
+2002 Aug 25: Created new floor tile ("sub beach floor").
+
+2002 Aug 22: Worked on the tile editor, adding a save function, and
+             the ability to shift tiles around (in their boxes).
+
+             More work repositioning objects/monsters in the 3D
+             tileset (a lot easier now using the tile editor).
+
+2002 Aug 21: Improved tile2png, with new options for transparency
+             (-t), fonts (-f), how many tiles across to use (-a), and
+             background color (-b).
+             
+2002 Aug 20: Determined optimum Slash'EM 8-bit palette.
+
+             Wrote `tile2png.c' for converting the tileset into PNG
+             files in Slash'EM.
+
+2002 Aug 19: More tile work, mainly repositioning objects & monsters
+             in the isometric 3D tileset.
+
+2002 Aug 18: Made a new floor tile ("sub cave floor").  Fixed the last
+             two sokoban wall tiles in the isometric 3D set (they were
+             back-to-front).
+
+             Made all new isometric dragons: Took one of the huge
+             dragon tiles from Slash'EM, shrunk it to 2/3 the size,
+             edited and tidied it, and then colorised it.  They look
+             nice !  Also fixed the remaining dragons (babies too).
+
+2002 Aug 17: Tidied up the trap tiles in the isometric 3D set.  Fixed
+             the down ladder.
+
+             Created new 32x32 explosion tiles (by re-coloring the
+             fiery explosion tiles).  Imported the Slash'EM versions
+             of "floor of a room" and the lit/unlit corridor tiles.
+
+             Put the new 32x32 explosions into the isometric 3D set,
+             adjusting them to way the 3D tiles overlap (not skewed,
+             like the old ones).  Improved the pyrolisk.
+
+2002 Aug 16: Renabled the screenshot code, but ONLY when in wizard
+             (debugging) mode.
+
+             Fixed the diagonal fire zap in the isometric 3D tiles.
+             Unskewed the resistance effect.  Moved most zaps higher
+             so they don't look like they're sitting on the floor.
+             Imported grave and magic portal.  Fixed camera beam, bear
+             trap, level tele trap, sink and fountain, and spiked pit.
+
+2002 Aug 15: Been working on importing the isometric 3D tileset from
+             Slash'EM into glHack's codebase.  So far it is working,
+             but some tiles need fixing, many tiles need moving (too
+             many objects/monsters look like they are floating above
+             the floor), and some tiles need replacing (the dragons
+             are way too big for my taste).
+
+2002 Aug 08: Made the F4 key toggle a permanent cursor around the
+             player, which is useful when you are invisible.  Other
+             ports usually have a cursor, so it's not like gaining
+             an unfair advantage.
+
+             Made zooming have sensible limits, e.g. not drawing the
+             tiles more than 4 times bigger or less than 3 times
+             smaller.
+
+2002 Aug 07: Fixed the map border when using the 3D tileset in
+             software mode.  Also fixed the position of the pet mark.
+
+2002 Aug 04: Started work on supporting the isometric 3D tileset.
+             Initially for Slash'EM only...
+
+2002 Aug 03: Finished implementing a "gamma" option.  It takes a value
+             from -2 to +2: 0 being normal, negative values are
+             darker, positive values are brighter.
+
+2002 Aug 01: Disabled (by default) the screenshot code.  It is a small
+             security risk to write files from a SETGID program, even
+             bigger if someones compiles it as SETUID-root.
+
+2002 Jul 31: Added "clearlocks" where needed, fixing a problem of
+             leaving stale locks when quitting from role selection.
+             
+             Fixed the problem of --help causing a segfault.
+
+             Added support for SHOW_WEIGHT (status line), and a few
+             extra status flags (Invul, Lev and Fly).
+
+2002 Jul 28: Updated code to support both glHack and Slash'EM at the
+             same time.  The glHack has the define "VANILLA_GLHACK" in
+             config.h, which doesn't exist for Slash'EM.
+
+2002 Jul 26: Made a simple Slash'EM logo.
+
+2002 Jul 19: Started work on "glSlashEM", a conversion of the glHack
+             window systems to the code of Slash'EM (an alternative
+             NetHack with lots of added stuff).
+
+             Got it working.  It was mainly makefile/config stuff, the
+             actual code is an almost perfect fit as the windowing API
+             is the same.
+
+------------------------------------------------------------------------
+
+2002 Jun 27: Released version 0.9.5.
+
+2002 Jun 26: Made most of the glHack options not usable on the command
+             line, because the standard NetHack options are not usable
+             on the command line either.
+
+             Added a "--fontsize" command-line option, to fill a
+             useful hole left by the recent option changes.
+
+             Made the glHack keyrepeat option accept the keywords
+             "never", "partial" and "always".  Backwards compatibility
+             with the integer values has been kept.
+
+             Fixed text map where certain monsters (uruk-hai, raven,
+             black unicorn) were being shown as black on black.
+
+2002 Jun 25: Made logo fade-out actually do some fading out in
+             software mode, even if it takes longer, and fixed the
+             fading for 8-bit mode.
+
+             Fixed name on tombstone when in software mode.
+
+2002 Jun 24: For S/W renderer, use SDL_HWPALETTE for 8 bit modes,
+             which fixes the problem of colors being slightly out of
+             whack.  It isn't done for windowed modes, because that
+             causes color flashing.
+
+2002 Jun 22: Improved cursor handling, removing the `LineCursor'
+             stuff, and making sure the dirty matrix is updated
+             properly.
+
+             Fixed "slow but nicer" surface shrinker.
+
+             More work on dirty matrix system.  Now *ALL* drawing
+             primitives (both fills and blits) to the screen pass
+             through a single function which clips to the matrix.
+
+             Added GH_INLINE #define to winGL.h header.
+
+             The dirty matrix system is more or less finished, and
+             numerous little bugs that caused strange results have
+             been fixed.  The S/W renderer is a lot faster now,
+             especially for things like throwing daggers and zapping
+             wands.
+
+2002 Jun 21: Implemented `has_alpha' array for S/W tilesets.
+
+             Added `set_new_pos' to the rendering API, since it is
+             similiar to scrolling (set_pan) and could be optimised.
+
+             Removed the tile updating routines (store_char,
+             transfer_area, etc) from the rendering API, to prevent
+             unnecessary duplication, and added `mark_dirty' func.
+
+             Worked on implementing a dirty matrix system for the
+             software renderer -- this will lead to faster rendering
+             since (in general) a lot less needs to be redrawn every
+             frame.  I've decided that 64x64 size cells will be best,
+             to minimise the work needed to clip tiles to the dirty
+             areas.
+             
+2002 Jun 20: Made wait_synch() do a 1 second delay when called before
+             the windowing system has been initialised.  The main code
+             calls it like that when it encounters problems parsing
+             the config file.
+
+             Made the GL_OPTIONS parsing code handle unknown options
+             the same way as the main code does.
+
+             Fixed software bug drawing map without padding (needed
+             sw_enable_clipping routine after all).
+
+             Fixed a bug with tile flipping, where the player would
+             not flip properly if moved onto an object.
+
+2002 Jun 19: Disabled `SHELL' in unixconf.h.  It doesn't work properly
+             because glHack runs fullscreen.
+
+             Renderers now skip text spaces.
+
+             More font work.  OK, they are now all complete.
+
+             Fixed GL rendering bug when shrinking textures to save
+             space.
+
+2002 Jun 18: Tested 8-bit software mode.  It actually works !  But the
+             quality is pretty bad, and is even slower than 16 bit.
+
+             Also tried setting the palette to match the tileset, but
+             the results were even worse -- surely down to the way
+             SDL's 8-bit alpha blitting routines work (using an RGB
+             3-3-2 intermediate value).
+
+             More investigation into SDL suggests that using 8-bit
+             surfaces with colorkey for all the tilesets will produce
+             the best results.
+
+             Added SDL_Lock/UnlockSurface where needed.
+
+             Sped up palette searches with a color cache.
+
+             Implemented 8-bit surfaces with colorkeying for the
+             software renderer -- looks really good now, and is
+             surprisingly fast (in both 8 and 16 bit mode).
+             
+2002 Jun 17: Added `make_screenshot' to the rendering API.
+
+             Tested software-only and GL-only compilation.
+
+2002 Jun 16: Improved the fonts.
+
+             Added padding to the tile textures (GL renderer), fixing
+             visible glitches when zoomed in (enlarging the tiles).
+
+             Also we now query the GL max texture size (rather than
+             assuming 256x256). 
+
+             Implemented the map border in the software renderer.
+
+             Added rend_startup/shutdown to the rendering API, fixing
+             a problem where sdlgl_unit_startup was being called in
+             software mode.
+             
+2002 Jun 15: Added tile shrinking to the software renderer, it can now
+             render small (16x16) versions of the 32x32 tiles.
+
+             Investigated whether to use colorkeying or alpha channel
+             for SDL blitting.  RLE blitting is out, as the font cache
+             image will regularly change, causing big overhead due to
+             frequent conversion from and to RLE format.  The standard
+             SDL blit routines for colorkey and alpha (BlitNtoNKey and
+             BlitNtoNPixelAlpha) are a bit disappointing, as both do a
+             switch() on the pixel size (src AND dest) at every pixel.
+
+             So for now, I'll stick with RGBA 8-8-8-8 (using 5-5-5-1
+             produced really poor results).  Eventually it may make
+             sense to write some custom blit routines.
+ 
+             Added extra shapes (the heart for pets, etc) to the
+             software renderer.
+
+             Implemented the font cache for the software renderer,
+             colored text works properly now.  The cache stores 512
+             characters (i.e. enough for two complete fonts), and the
+             hit-to-miss ratio was over 99% -- surprisingly good.
+ 
+2002 Jun 14: Fixed up documentation (README.GL) for recent changes.
+
+             Separated the hardware and software APIs to make them
+             selectable dynamically (before, they shared the same
+             function names, being compile-time switched).
+
+             Began work on integrating Allister MacLeod's software
+             rendering code...  So far so good, large chunks are
+             working, and even unoptimised it is almost playable on my
+             166 Mhz machine at 800x600.
+
+2002 Jun 13: More work to support WINCAP (new window port options that
+             appeared in NetHack 3.4.0).  Added support for these
+             standard options: "vary_msgcount" (replaces the glHack
+             option "msglines"), "tile_height" (replaces "tilesize"),
+             and "fontsiz_*" options (which replace "mapfont" and
+             "textfont").
+
+2002 Jun 12: Added a "jumpscroll" option, which scrolls using large
+             jumps rather than the normal 1-tile-at-a-time mode.  This
+             emulates how many other ports work, and should be more
+             efficient for software rendering.  It also supports the
+             standard "scroll_margin" option.
+
+             Improved position of heart for pets with flipped tiles.
+
+2002 Jun 10: Implemented a "flipping" option, which horizontally flips
+             monster tiles to match the direction they are moving in.
+
+             Added support for the standard "splash_screen" option.
+
+2002 Jun 09: Implemented --version cmdline option.
+
+             Removed MAX_SCROLLBACK, making it configurable with the
+             standard "msghistory" option.
+
+             Created new file gl_font.c for font management.
+
+             Made key repeat default to the "always" setting.
+
+             Added support for align_message and align_status options.
+             Fixed do_prevmsg (in altprev mode) to cope.
+
+2002 Jun 08: Found problem causing segmentation fault when the
+             "windowtype" option is used with e.g. "tty".  Boils down
+             to main code calling wait_synch() in choose_windows()
+             before the window port is initialised.
+
+             Started paving the way for software support, in the form
+             of "windowtype:SDL" versus "windowtype:GL".
+             
+             Removed a few glhack-specifics from the modified src/ and
+             include/ files, with a view to making glhack more
+             integrateable into the standard NetHack codebase.
+
+             Reworked zoom code (gl_map.c), to support software mode
+             properly (previous code used #if blocks).
+
+             Created gl_rendu.c, which will contain software rendering
+             utility functions.
+             
+2002 Jun 07: Fixed floor tiles (gnomish mines, etc) for 3.4.0 tileset.
+
+2002 Jun 06: Fixed gl_map.c to use the new mapglyph() routine that
+             appeared in NetHack 3.4.0.
+
+             Updated gl_role.c to use build_plselection_prompt(), a
+             new routine in 3.4.0, and fixed it to properly handle the
+             flags.randomall (-@) option.  Made it use the old prompt
+             when all the initxxxx vars are ROLE_NONE (i.e. no option
+             was given to select race/role/etc).
+
+2002 Jun 04: Initial (minimal) port is done, and seems to work.
+
+2002 Jun 02: Begin porting to the NetHack 3.4.0 codebase.
+
+------------------------------------------------------------------------
+
+2002 Mar 27: Released version 0.9.0.
+
+2002 Mar 25: Updated tile data in win/share, bringing everything in
+             line with NetHack 3.4.0.
+
+2002 Mar 24: Worked on a different method of doing the scrollback
+             buffer, which should fix the lost messages bug.
+
+2002 Mar 21: Implemented message_menu() to behave like the TTY code:
+             allowing a key to be accepted even when the [MORE] is
+             displayed.
+
+             Made the QUIT signal from SDL (closing the window with
+             the X button) terminate like HUP does on the TTY port.
+
+2002 Mar 15: Implemented some option code which reads the config file
+             (if present), merges in a list of changed options, and
+             writes the config file back.  It remembers where options
+             were and any non-option lines, so the changes to the
+             config file are minimised.
+
+             Split gl_opt.c into a new file gl_conf.c.
+
+2002 Mar 13: Added support for GLHACKOPTIONS env var.  Works like the
+             standard NetHack equivalent, except that only options are
+             present (never a filename).
+
+2002 Mar 12: Been working on new option menu, which can save changes
+             back into the config file.
+
+2002 Mar 09: Found some more duplicate tile names in the TXT files. as
+             follows:
+
+                (a) werejackal, wererat and werewolf have two entries,
+                    one for the humanoid form, and one for the animal
+                    form.  Appended "humanoid" to the former.
+                (b) open door, closed door and the drawbridges had two
+                    entries: horizontal and vertical.  Inserted the
+                    word "vertical" in the second cases.
+                (c) for "land mine" and "bear trap", there was two
+                    entries: one for the trap (cmap element) and one
+                    for the object (pickupable).  Appended the word
+                    "object" to the latter.
+
+2002 Mar 08: Added a `depth' option for controlling the video mode
+             (== bits per pixel).
+
+             Implemented a `--help' command-line option.
+
+             Split some files into smaller pieces:
+                gl_main.c --> gl_role.c and gl_opt.c
+                gl_win.c  --> gl_menu.c and gl_text.c
+
+2002 Mar 07: Fixed bug in altprev scrollback that would reset the
+             scrollback position if you let go of the CTRL key.
+
+             Tried making the altprev scrollback go one line at a
+             time.  Worked quite nicely.
+
+             Reworked altprev code to handle ^O to scroll forwards.
+
+             Reworked general scrollback code to limit the window to
+             the readable (non-blank) lines.  Added a `prevstep'
+             configuration option.
+
+2002 Mar 04: Investigated keypad handling, and relationship to the
+             standard `number_pad' option.  Findings:
+
+                TTY: number_pad seems to make keypad send digits,
+                     which main code then interprets as moves.
+                     When off, either makes keypad do nothing, or send
+                     escapes (which probably confuses main code).
+
+                X11: ignores number_pad option.  No special processing
+                     for keypad (relies solely on X's conversion to a
+                     character).
+
+                Gnome: Seems to force movement, i.e. sends "hjkl" etc
+                       when number_pad is off, and digits when
+                       number_pad is on.  Other cases seem broken
+                       (passing GDK_KP_x values to main code ?).
+
+             For glHack, made the keypad always return digits to the
+             main code.  Hence the `number_pad' option is required to
+             move the player with the keypad.
+
+             Added support for the ALT/META key.
+
+2002 Mar 03: Finished and cleaned up the text reformatting code.
+
+             Added initial mouse support (moving the player using
+             clicks).
+
+             Made text menus show the on-going count (when the user
+             presses digits) at the bottom right of the window.
+
+             Made CTRL-PGUP and CTRL-PGDN switch to graphical view
+             when used while the text-mode view is active.  Previously
+             they would be ignored.
+
+2002 Mar 01: Removed font size limitations.  8, 14, 20 and 22 can now
+             be used for both mapfont and textfont.
+             
+             Implemented new `shrinkwrap' option, which will use a
+             smaller font on text windows when they don't fit across
+             the screen.
+
+             Began work on new `reformat' option, which reformats the
+             text in text windows when they don't fit across the
+             screen.
+
+2002 Feb 28: Added set_scale() and draw_border() to the rendering API.
+
+             Made size of message window configurable, the option is
+             called `msglines'.
+
+             Changed the way the map text-view works.  It no longer
+             switches to text when zooming out, instead the `END' key
+             toggles between graphical view and text-view.
+
+             The map is now drawn with a dark blue border around it.
+
+2002 Feb 26: Added start_fading() and finish_fading() routines to
+             rendering API (gl_hardw/gl_softw).
+
+             Added the following new rendering API routines, reworking
+             the code to use them:
+
+                store_char()  store_str()
+                store_tile()  blank_area()  
+                copy_area()   transfer_area()
+                set_pan()
+             
+             Made the choice of fonts configurable, the option names
+             are `textfont' for all the text and `mapfont' for the map
+             when in text-mode.  Allowable values:
+                
+                textfont: 14, 20, 22
+                mapfont: 8, 14
+             
+2002 Feb 25: Renamed sdlgl_flush_gl() to sdlgl_flush().
+
+             Added config value `altprev', which changes the way
+             previous message mode (CTRL-P) works, making it more like
+             the TTY version.
+
+             Massaged the 14 font into the correct order (IBM cp437
+             charset), and made the missing characters solid blocks.
+
+             Did the same for the size 20 font.  Both these fonts are
+             now more or less usable.
+             
+2002 Feb 24: Added a symbol for ridden monsters.
+
+             Fixed tile names, door glyphs and various other bits in
+             "PairSpec" and the xxx_pair.list files in win/share.
+
+------------------------------------------------------------------------
+
+2002 Feb 24: Released version 0.8.5.
+
+2002 Feb 22: Implemented tileset saving code in tools/edtile.
+
+2002 Feb 21: Fixed code to handle font changes (both fonts are now
+             consistent).
+
+             Created `makeset' program (in tools/edtile) which
+             recreates the tilesets and fonts from the TXT files in
+             win/share.  Needs the pngify.sh script and pnmtopng
+             program too.
+             
+             Used the GIMP to enlarge the glrip.png image by 50%,
+             partly for better quality than in-game scaling, but
+             mainly to support the software renderer which will
+             probably be unable to do any scaling.  Fixed the GL code
+             accordingly.
+             
+2002 Feb 20: Converted the fonts (8x8 and 12x22) into TXT format in
+             the win/share directory.
+
+             Fixed some tile names in the TXT files in win/share:
+
+               (a) all the normal walls are now numbered 0 to 10.
+               (b) the four zigzag walls are now lettered A to D.
+               (c) "cmap 67" to "cmap 91" in the 16x16 tiles now have
+                   the correct names.
+               (d) there were two "water" entries, the first one was
+                   renamed to "pool of water".
+               (e) there were two "silver / polymorph" entries, a wand
+                   and a spellbook.  The spellbook got a `y' added and
+                   is now "silvery / polymorph".
+ 
+             Made sure "util/recover_glhack" gets compiled and
+             installed.  Not tested yet though.
+             
+2002 Feb 19: Fixed problem not updating screen when "exposed" by an
+             overlapping window.
+
+2002 Feb 17: Disabled the `windowtype' config option, to prevent
+             crashes.  It is silently ignored.
+
+2002 Feb 16: Integrated Allister MacLeod's patch to handle group
+             accelerators in menus.
+
+             Fixed key-repeat when inputting strings.
+
+2002 Feb 14: New option "keyrepeat", taking an integer value: 0 to
+             disable auto-repeating completely, 2 to enable it all the
+             time, and 1 (the default) to enable it for non-game moves
+             only (like scrolling windows).
+
+             Worked on "PairSpec", a way of encoding glyphs into two
+             (sometimes three) human-readable characters that can be
+             used for both text display and converted to tiles.
+
+2002 Feb 12: Fixed border around trapdoor and teleport glyphs.
+
+2002 Feb 11: Changed config file to $(HOME)/.nethackrc (for Unix),
+             and under Windows it shall be glhackconf.txt.
+
+             Worked on combining the glHack specific command line
+             parsing and config-file parsing.  There is just one
+             glHack-specific config line now: "GL_OPTIONS=....", which
+             takes a bunch of comma-separated options (just like how
+             the normal NetHack options work).
+
+             Renamed occurances of `index' in the code to something
+             else, for some obscure reason the main NetHack header
+             files #define it to strchr, and it gave some grief.
+             
+2002 Feb 03: Reworked map centering code: made the `END' key always
+             center on player (like before), and now the `HOME' key
+             will center on the map when it fits (otherwise move
+             screen as close to the map's center as possible without
+             the player going off-screen).
+
+2002 Feb 02: EdTile: Added `compact' view mode, and started work on
+             the editing window.  Fixed the license window.
+
+2002 Feb 01: Modified src/display.c to fix the problem of non-updating
+             backgrounds (e.g. moving near an object in a dark room
+             whilst carrying a lamp).  Copied logic from Slash'EM.
+
+             Made `END' key center the whole map on-screen when it
+             fits (at highest zoom factor).
+             
+2002 Jan 31: Started work on `EdTile', a NetHack tile editor.
+
+2002 Jan 29: More tileset improvements, including different floors for
+             special places (e.g. the mines).  The new background
+             glyph code is in place.  Fixed the player selection menus
+             to have nicer accel keys (like in TTY version).
+
+2002 Jan 27: Improved the tileset, using many 32x32 tiles from the
+             Slash'EM port, and added transparent parts to the
+             remaining ones.
+
+2002 Jan 26: Added preliminary support for TWO tiles per square, a
+             foreground and a background.  Pinched this neat idea (and
+             some code) from Slash'EM.
+
+2002 Jan 24: Split gl_win.c into 1 extra file, "gl_map.c" handling all
+             the map operations (zooming, the jail, etc).
+
+             Fixed bug not allowing `#' to be selected in menus.
+
+             Fixed the (de)select_all keys, which didn't update the
+             screen.
+             
+2002 Jan 23: Split gl_tile.c into 2 extra files, putting all the
+             GL-specifics into the file "gl_hardw.c", and putting
+             the image loading/saving code into "gl_image.c".
+
+------------------------------------------------------------------------
+
+2002 Jan 20: Released version 0.8.0.
+
+2002 Jan 17: Implemented screenshots, using F5 key.
+
+2002 Jan 16: Been working on fixing up the JAIL handling code, and
+             a new "alt zoom" option that tries to center the map on
+             the screen when zooming out.
+
+2002 Jan 12: Made extended command input like tty (space after `#').
+
+2002 Jan 12: Added support for SHIFT + arrow keys moving large steps
+             in the text windows, and CTRL + arrow keys moving to the
+             very end (horizontally or vertically).
+
+2002 Jan 11: Spent the last few days working out the default source
+             config and makefiles, and installation directories and
+             permissions.
+
+2002 Jan 02: Worked on keyboard auto-repeat.
+
+2001 Dec 29: Fix for detection potions briefly flashing by.
+
+2001 Feb:    Started work on glHack.  Lots of work over the course
+             of 2001 (not logged, unfortunately).
+

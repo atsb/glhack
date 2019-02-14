@@ -1,0 +1,328 @@
+.\" -*-nroff-*-
+.TH glHack 6 "January 2003"
+.\" .UC 4
+.SH NAME
+glhack \- Exploring The Mazes of Menace
+.SH SYNOPSIS
+.B glhack
+.RI "[" options "] "
+.PP
+.B glhack
+.RI "-s [" options "] "
+.SH DESCRIPTION
+.I glHack
+is a port of the game NetHack, using hardware acceleration via
+OpenGL(R) to render the 2D tile graphics.  It uses LibSDL as the video
+and input library.  There is good support for software rendering as
+well.
+.PP
+.I NetHack 
+is a display oriented Dungeons & Dragons(tm) - like game.
+The standard tty display and command structure resemble rogue.
+.PP
+.\" Since glHack is a version of NetHack, this man page includes a lot of
+.\" information that appears in the
+.\" .BR nethack (6)
+.\" manpage.
+.\" Command-line options are described in two sections, one for
+.\" standard NetHack options and one for glHack-specific options.
+.\" .PP
+To get started you really only need to know two commands.  The
+.RB ` ? '
+command will give you a list of the available commands (as well as other
+information) and the
+.RB ` / '
+command will identify the things you see on the screen.
+.PP
+To win the game (as opposed to merely playing to beat other people's high
+scores) you must locate the Amulet of Yendor which is somewhere below
+the 20th level of the dungeon and get it out.  This is not an easy feat!
+.PP
+When the game ends, whether by your dying, quitting, or escaping
+from the caves,
+.I glHack
+will give you (a fragment of) the list of top scorers.
+The scoring is based on many aspects of your behavior, but a rough estimate
+is obtained by taking the amount of gold you've found in the cave plus four
+times your (real) experience.
+Precious stones may be worth a lot of gold when brought to the exit.
+There is a 10% penalty for getting yourself killed.
+.SH NETHACK OPTIONS
+.\" The environment variable NETHACKOPTIONS can be used to initialize many
+.\" run-time options.
+.\" The ? command provides a description of these options and syntax.
+.\" Because the option list can be very long (particularly when specifying
+.\" graphics characters), options may also be included in a configuration
+.\" file.
+.\" The default is located in your home directory and
+.\" named .nethackrc on Unix systems.  On other systems, the default may be
+.\" different, usually NetHack.cnf.  On DOS or Windows, the name is
+.\" defaults.nh, while on the Macintosh or BeOS, it is NetHack Defaults.
+.\" The configuration file's location may be specified by setting NETHACKOPTIONS
+.\" to a string consisting of an @ character followed by the filename.
+.\" .PP
+These are the standard options that NetHack supports.
+.TP
+.BI \-u " playername"
+This option supplies the answer to the question "Who are you?".
+It overrides any name from the options or configuration file, the USER
+orLOGNAME shell variables,
+or getlogin(), which will otherwise be tried in order.
+If none of these provides a useful name, the player will be asked for one.
+Player names (in conjunction with uids) are used to identify save
+files, so you can have several saved games under different names.
+Conversely, you must use the appropriate player name to restore a
+saved game.
+
+A playername suffix can be used to specify the profession, race,
+alignment and/or gender of the character.
+The full syntax of the playername that includes a suffix is
+"name-ppp-rrr-aaa-ggg".
+"ppp" is at least the first three letters
+of the profession (this can also be specified using the
+.B \-p
+option).  "rrr" is at least the first three letters of the character's
+race (this can also be specified using the
+.B \-r
+option).  "aaa" is at least the first three letters of the character's
+alignment, and "ggg" is at least the first three letters of the
+character's gender.
+Any of the suffix parts suffix may be left out.
+.TP
+.BI \-p " profession"
+This can be used to determine the character role.  You can specify either the
+male or female name for the character role, or the first three characters
+of the role as an abbreviation.
+.BR `\@' " and " random
+can also be used to mean "choose a random role".
+.TP
+.BI \-r " race"
+Likewise this can be used to explicitly request that a race be chosen.
+
+Note: Leaving out any of these characteristics will result in you
+being prompted during the game startup for the information.
+.TP
+.B \-\@
+Choose all (remaining) character attributes randomly.
+It doesn't affect any characteristics that have already been
+specified by other means.
+.TP
+.B \-s
+This option alone will print out the list of your scores on the current version.
+The
+.B \-s
+may also be followed by arguments
+.B \-p
+and
+.B \-r
+to print the scores of particular roles and races only.
+It may also be followed by one or more player names to print the scores of the
+players mentioned, by 'all' to print out all scores, or by a number to print
+that many top scores.
+.TP
+.BR "\-dec " and " \-ibm"
+These command line options are equivalent to the
+.B decgraphics
+and
+.B ibmgraphics
+in-game options,
+.\" (described elsewhere)
+and are provided purely for convenience on systems
+supporting multiple types of terminals.
+.TP
+.BR "\-D " or " \-X"
+These option will start the game in a special non-scoring discovery mode.
+If the player is the game administrator, 
+.B \-D
+will start in debugging (wizard) mode instead.
+.TP
+.B \-n
+This option suppresses printing of any news from the game administrator.
+.TP
+.B \-d
+This option is usually only useful to the game administrator.
+If it appears, it must be the first argument, and supplies a directory
+which is to serve as the playground.
+It overrides the value from NETHACKDIR, HACKDIR,
+or the directory specified by the game administrator during compilation
+(usually /usr/lib/games/glhack).
+The playground must contain several auxiliary files such as help files,
+the list of top scorers, and a subdirectory
+.I save
+where games are saved.
+.SH GLHACK OPTIONS
+These are the command line options specific to glHack.
+.PP
+They all begin with a double dash (`--').
+Values are normally separated from the option with a space, like
+"--depth 32".
+.PP
+Alternatively, a value can be placed after an `=' sign without any
+spaces, like "--depth=32".  This should be used if the value begins
+with a minus (`-') sign, otherwise the number will be mistaken as a
+new option.
+.PP
+Options that take a value are shown here with example values.
+.TP
+.BR --mode " 640x480"
+Specifies the video mode.
+Normally glHack will autodetect the mode, but using this option will
+override that.  The default value (when all else fails) is 800x600.
+.TP
+.BR --depth " 8"
+Video depth (bits per pixel).
+Possible values are 15, 16, 24 and 32, and 8 when using the software
+renderer.
+The default value is autodetected.
+.TP
+.B --windowed
+Play inside a window, rather than fullscreen.
+.TP
+.BR --gamma =-2
+Gamma correction value.
+Range is -5 to +5, where positive values make the screen brighter,
+and negative values make it darker.
+Zero is the default (no adjustment).
+.TP
+.BR --tileheight " 64"
+Choose the tileset, which can be 16, 32 or 64.
+The default is 32.
+To get the Isometric 3D tileset, use the value 64.
+.TP
+.BR --fontsize " 22"
+Choose the font size, out of 8, 14, 20 or 22.
+The default is 20.
+The given size will be used for all text windows, overriding any
+wincap settings in the config file.
+.TP
+.B --help
+Show a help page.
+.TP
+.B --version
+Show the current version.
+This can also be done within the game using the #version command.
+.SH ENVIRONMENT
+.TP
+USER or LOGNAME
+Your login name (used as the player name).
+.TP
+HOME
+Your home directory (used to find the config file).
+.TP
+NETHACKOPTIONS
+String predefining several standard NetHack options.
+.TP
+GLHACKOPTIONS
+String predefining several glHack-specific options.
+.TP
+NETHACKDIR
+Playground directory (see -d option above).
+.PP
+In addition, SHOPTYPE is used in debugging (wizard) mode.
+.SH SECURITY
+glHack runs set-gid
+.BR games .
+This is needed to create/modify the persistent game files.
+In general, set-gid programs are a lot more secure than set-uid
+programs.  An attacker who successfully compromises a set-gid game
+executable can only mess around with various game data files
+(typically those in /var/games and /var/lib/games).
+.PP
+Since glHack is based on NetHack 3.4.0, any security issues
+with NetHack 3.4.0 (past or future) will almost certainly apply to
+this release of glHack.
+.PP
+Currently there is only one place in the glHack-specific code that
+creates or writes to a file: the screenshot code.  Taking screenshots
+is restricted to the game administrator (the "wizard" account).
+.PP
+As far as I know, glHack will never execute another program.  The
+following features of the NetHack 3.4.0 codebase which do execute
+other programs are 
+.B disabled 
+in glHack's standard (compile-time)
+configuration: running a compression utility (COMPRESS), running a
+shell (SHELL), reading mail (MAIL), and running an external pager
+(TTY code).
+.SH FILES
+.PP
+.\"Some of these files exist in the static playground, 
+.\"normally /usr/lib/games/glhack, 
+.\"and some are found in the variable playground.
+.\"normally /var/lib/games/glhack.
+.TP
+~/.glhackrc
+Configuration file for glHack.  See the
+.BR glhackrc (5)
+manual page for more information.
+.TP
+/usr/lib/games/glhack
+The static playground.  Read-only files are stored here.
+Files found here will be marked "(STATIC)" in the entries below.
+.TP
+/var/lib/games/glhack
+The variable playground.  Persistent (read/write) data files are
+stored here.  These files are marked "(VAR)" below.
+.TP
+nhdat (STATIC)
+Archive containing all the stuff that NetHack requires to play
+(level files, text files, help files, etc).  The format is DLB
+(Data LiBrarian) and is NetHack-specific.
+.TP
+license (STATIC)
+Rules governing redistribution.
+.TP
+glhack_recover (STATIC)
+This program can be used to recover a game after glHack has crashed
+(assuming the files were not corrupted).  It can only be run as the
+superuser (root).
+.TP
+gl*.png (STATIC)
+Images (fonts, tilesets, etc) used by glHack.
+.TP
+gl*.lst (STATIC)
+Miscellaneous data files (e.g. tile facing info) used by glHack.
+.TP
+record (VAR)
+The list of top scorers.
+.TP
+logfile (VAR)
+An extended list of games played.
+.TP
+perm (VAR)
+Empty file used for locking purposes.
+.TP
+bonDD.nn (VAR)
+Bone files: descriptions of the ghost and belongings of a deceased
+adventurer.
+.TP
+NNNNname.dd (VAR)
+Temporary files for a user who is currently playing glHack, or after
+glHack has crashed.  The `NNNN' part is the numeric userid,
+followed by the player's name.
+.TP
+save/ (VAR)
+A subdirectory containing the saved games.
+.SH NO WARRANTIES
+This program is free software.  It is distributed in the hope that it
+will be useful, but WITHOUT ANY WARRANTY; without even the implied
+warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+.SH "SEE ALSO"
+.PP
+.BR glhackrc (5)
+.BR nethack-guidebook (6)
+.PP
+The glHack Homepage:
+.UR http://glhack.sourceforge.net/
+http://glhack.sourceforge.net/
+.UE
+.PP
+The official NetHack page:
+.UR http://www.nethack.org/
+http://www.nethack.org/
+.UE
+
+
+
+.PP
+.SM Dungeons & Dragons is a Trademark of TSR Inc.
