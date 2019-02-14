@@ -29,7 +29,7 @@ glHack is just one of the many NetHack front-ends.  Others include
 the original text-terminal (TTY) version, one for the X Window
 System, and one for GNOME called GnomeHack.
 
-glHack site: bitbucket.com/atsb/glhack
+glHack site: https://github.com/atsb/glhack
 
 Official NetHack site: http://www.nethack.org/
 
@@ -145,6 +145,22 @@ Installation permissions:
 
    The recovery program `recover_glhack' exists in the read-only dir,
    and requires root privileges to run.
+
+Building on Windows
+-------------------
+
+   GLHack has been modified to build on Windows by 'yours truly' :)
+   The build file is ./build-win.bat
+   
+   This isn't your usual bat file however, it needs a Mingw and GNU Utils setup to work.
+   MSYS or Mingw with UnxUtils (what I used to build it).  If you want to build it
+   on Windows yourself, I'll assume you know what to do.
+   
+   The script is self-contained and if you have everything setup, it will finish
+   and you will have a usable, self-contained binary of the game with all support
+   files neatly in a directory.
+   
+   Alternatively, you can wait for Releases :)
  
 
 KEYBOARD CONTROLS
