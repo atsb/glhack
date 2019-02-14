@@ -1,0 +1,109 @@
+
+glHack NEWS
+===========
+
+This file contains a summary of noteworthy changes.  For even
+more detailed information, please read the CHANGELOG.GL file.
+
+Changes in 1.3 (Released 19/Apr/2018) :
+
+  -  Renamed #define yn(query) to ysn(query)
+  to prevent conflicts with mathcalls.h
+  
+  -  Removed invalid libpng oldstyle pointers.
+  
+  -  Added math.h to winGL.h
+
+Changes in 1.2 (Released 25/Jun/2004) :
+
+  -  Updated glhack to use nethack 3.4.3.
+
+  -  Pressing TAB switches between tile map and ascii map, in
+     addition to pressing END
+
+Changes in 1.1 (Released 8/Jan/2003) :
+
+  -  Man pages: glhack, glhackrc and nethack-guidebook.
+   
+  -  Video mode and depth can now be autodetected.
+
+  -  Fixed some compile problems under Mandrake 9.0.
+ 
+  -  Colors have been generally brightened up, and the corridor tiles
+     are now a blue-ish color.
+
+  -  The "gamma" option has a larger range (-5 to +5).
+
+  -  Certain "must see" messages (especially ones where you die) are
+     now guaranteed not to be missed, and cause a [MORE] prompt.
+ 
+  -  Pressing ESCAPE when [MORE] is displayed now causes the remaining
+     messages to be displayed without further [MORE] prompts.
+ 
+  -  new "Held" status flag (idea by Roderick Schertler).
+ 
+Changes in 1.0 (Released 13/Oct/2002) :
+
+  -  Isometric 3D tileset !!  Just set tile_height to 64.
+
+  -  Gamma option for setting brightness.
+ 
+  -  Many improvements to the existing tiles.
+
+  -  Better mouse support (e.g. select in menus).
+
+  -  Map scrolling using the keyboard (ALT + cursor keys).
+
+Changes in 0.9.5 (Released 27/Jun/2002) :
+
+  -  Ported to NetHack 3.4.0 !  See the README.GL file for some
+     important info.
+
+  -  Software renderer !  Thanks to Allister MacLeod, who wrote the
+     initial software rendering code.
+
+  -  Feature to flip monster tiles to match their movement.
+
+  -  Added all missing characters to the font sets.
+
+Changes in 0.9.0 (Released 27/Mar/2002) :
+
+  -  Two new fonts: 20 pixels high and 14 pixels high, plus new
+     options "textfont" and "mapfont" to control which are used.
+  
+  -  Different text-mode map view, which is toggled by pressing the
+     `END' key.  Plus a border is now drawn around the map.
+
+  -  The video depth (bits per pixel) can now be specified.
+
+  -  An alternate history (^P) mode, which works more like the TTY
+     version, and a new "prevstep" option controls how far back to
+     scroll at each step.  Also fixed the lost messages bug.
+
+  -  Options to reformat or shrink text windows that are too wide.
+
+  -  Support for a "GLHACKOPTIONS" shell variable.
+
+  -  Fixes for the numeric keypad and ALT keys.
+
+Changes in 0.8.5 (Released 24/Feb/2002) :
+
+  -  Improved the tileset, borrowing many 32x32 tiles from the
+     Slash'EM version, plus a couple tiles were hand edited by Yours
+     Truly (including 6 new floor tiles).
+
+  -  New config file is $(HOME)/.glhackrc, and glHack specifics can be
+     set using a GL_OPTIONS line (see README.GL for more info).
+  
+  -  Handles group accelerators in menus (thanks to Allister MacLeod
+     for sending in a patch).
+  
+  -  Keyboard auto-repeat was improved, it can now be turned on/off in
+     the config file (see README.GL).
+     
+  -  Several bugs have been fixed, especially the crash bug that could
+     occur when using the `windowtype' option in the config file.
+
+Version 0.8.0 (Released 20/Jan/2002) was the initial public 
+release of glHack.
+
