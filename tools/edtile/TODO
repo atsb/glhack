@@ -1,0 +1,17 @@
+
+EdTile TODO
+===========
+
+*  t_colmap: use caching to SPEED UP lookup operations.
+  
++  write w_sets (shows each TXT file).
+
++  write w_dialog class.
+
+-  fix w_compact to use full window width (maximised).
+   
+-  convert various r/g/b parameters to use PackCols.
+
+-  write code to "import" a tileset, i.e. map the colors in the
+   imported file to those in the original TXT file.
+   

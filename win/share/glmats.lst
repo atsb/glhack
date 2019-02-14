@@ -1,0 +1,10 @@
+#
+# Default Materials
+#
+MonsterDefault  0.2  0.8  0.0  0.0  0  -
+ObjectDefault   0.2  0.8  0.0  0.0  0  -
+DungeonDefault  0.2  0.8  0.0  0.0  0  -
+
+PetMark         0.2  0.8  0.0  0.0  0  -
+Gem             0.1  0.5  0.0  0.0  0  -
+

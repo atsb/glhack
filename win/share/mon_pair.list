@@ -1,0 +1,388 @@
+a-y giant ant
+a-Y killer bee
+a-b soldier ant
+a-r fire ant
+a-k giant beetle
+a-m queen bee
+b-g acid blob
+b-W quivering blob
+b-c gelatinous cube
+c-y chickatrice
+c-Y cockatrice
+c-r pyrolisk
+d-y jackal
+d-r fox
+d-z coyote
+d-p werejackal
+d-W little dog
+d-X dog
+d-A large dog
+d-Y dingo
+d-q wolf
+d-Z werewolf
+d-P warg
+d-d winter wolf cub
+d-c winter wolf
+d-s hell hound pup
+d-t hell hound
+e-w gas spore
+e-b floating eye
+e-W freezing sphere
+e-r flaming sphere
+e-B shocking sphere
+f-W kitten
+f-X housecat
+f-y jaguar
+f-c lynx
+f-k panther
+f-A large cat
+f-Y tiger
+g-g gremlin
+g-y gargoyle
+g-m winged gargoyle
+h-g hobbit
+h-r dwarf
+h-y bugbear
+h-b dwarf lord
+h-m dwarf king
+h-n mind flayer
+h-o master mind flayer
+i-r manes
+i-g homunculus
+i-s imp
+i-y lemure
+i-b quasit
+i-c tengu
+j-b blue jelly
+j-g spotted jelly
+j-y ochre jelly
+k-y kobold
+k-r large kobold
+k-m kobold lord
+k-B kobold shaman
+l-g leprechaun
+m-y small mimic
+m-r large mimic
+m-m giant mimic
+n-g wood nymph
+n-b water nymph
+n-y mountain nymph
+o-w goblin
+o-G Goblin King
+o-y hobgoblin
+o-r orc
+o-Y hill orc
+o-b Mordor orc
+o-k Uruk-hai
+o-B orc shaman
+o-m orc-captain
+p-w rock piercer
+p-c iron piercer
+p-W glass piercer
+q-y rothe
+q-w mumak
+q-r leocrotta
+q-c wumpus
+q-x titanothere
+q-a baluchitherium
+q-k mastodon
+r-y sewer rat
+r-z giant rat
+r-p rabid rat
+r-q wererat
+r-w rock mole
+r-Y woodchuck
+s-w cave spider
+s-Y centipede
+s-m giant spider
+s-r scorpion
+t-w lurker above
+t-g trapper
+u-W white unicorn
+u-w gray unicorn
+u-k black unicorn
+u-y pony
+u-z horse
+u-p warhorse
+v-w fog cloud
+v-y dust vortex
+v-c ice vortex
+v-B energy vortex
+v-b steam vortex
+v-Y fire vortex
+w-z baby long worm
+w-n baby purple worm
+w-y long worm
+w-m purple worm
+x-m grid bug
+x-r xan
+y-Y yellow light
+y-k black light
+z-y zruty
+A-g couatl
+A-Y Aleax
+A-W Angel
+A-Z ki-rin
+A-m Archon
+B-y bat
+B-r giant bat
+B-k raven
+B-l vampire bat
+C-y plains centaur
+C-g forest centaur
+C-c mountain centaur
+D-x baby gray dragon
+D-D baby silver dragon
+D-s baby red dragon
+D-X baby white dragon
+D-S baby orange dragon
+D-l baby black dragon
+D-f baby blue dragon
+D-h baby green dragon
+D-Z baby yellow dragon
+D-Q baby shimmering dragon
+D-w gray dragon
+D-C silver dragon
+D-r red dragon
+D-W white dragon
+D-R orange dragon
+D-k black dragon
+D-b blue dragon
+D-g green dragon
+D-Y yellow dragon
+D-P shimmering dragon
+E-W stalker
+E-c air elemental
+E-Y fire elemental
+E-y earth elemental
+E-b water elemental
+F-G lichen
+F-y brown mold
+F-Y yellow mold
+F-g green mold
+F-r red mold
+F-m shrieker
+F-n violet fungus
+G-y gnome
+G-b gnome lord
+G-B gnomish wizard
+G-m gnome king
+H-r giant
+H-w stone giant
+H-c hill giant
+H-Y fire giant
+H-W frost giant
+H-b storm giant
+H-y ettin
+H-m titan
+H-z minotaur
+J-R jabberwock
+K-b Keystone Kop
+K-f Kop Sergeant
+K-c Kop Lieutenant
+K-m Kop Kaptain
+L-y lich
+L-r demilich
+L-n master lich
+L-m arch-lich
+M-y kobold mummy
+M-s gnome mummy
+M-w orc mummy
+M-r dwarf mummy
+M-g elf mummy
+M-x human mummy
+M-b ettin mummy
+M-c giant mummy
+N-s red naga hatchling
+N-l black naga hatchling
+N-Z golden naga hatchling
+N-h guardian naga hatchling
+N-r red naga
+N-k black naga
+N-Y golden naga
+N-g guardian naga
+O-y ogre
+O-r ogre lord
+O-m ogre king
+P-w gray ooze
+P-y brown pudding
+P-k black pudding
+P-g green slime
+Q-c quantum mechanic
+R-y rust monster
+R-b disenchanter
+S-g garter snake
+S-y snake
+S-r water moccasin
+S-v pit viper
+S-m python
+S-b cobra
+T-y troll
+T-W ice troll
+T-c rock troll
+T-b water troll
+T-m Olog-hai
+U-y umber hulk
+V-r vampire
+V-b vampire lord
+V-y vampire mage
+V-m Vlad the Impaler
+W-w barrow wight
+W-k wraith
+W-m Nazgul
+X-y xorn
+Y-w monkey
+Y-y ape
+Y-z owlbear
+Y-W yeti
+Y-k carnivorous ape
+Y-x sasquatch
+Z-y kobold zombie
+Z-z gnome zombie
+Z-w orc zombie
+Z-r dwarf zombie
+Z-g elf zombie
+Z-W human zombie
+Z-b ettin zombie
+Z-c giant zombie
+Z-k ghoul
+Z-X skeleton
+'-Y straw golem
+'-W paper golem
+'-y rope golem
+'-Z gold golem
+'-z leather golem
+'-p wood golem
+'-r flesh golem
+'-q clay golem
+'-w stone golem
+'-c glass golem
+'-d iron golem
+@-W human
+@-y wererat humanoid
+@-r werejackal humanoid
+@-R werewolf humanoid
+@-A elf
+@-g Woodland-elf
+@-G Green-elf
+@-x Grey-elf
+@-B elf-lord
+6-e Elvenking
+8-D doppelganger
+8-N nurse
+8-E High-elf
+@-X shopkeeper
+@-b guard
+8-P prisoner
+@-F Oracle
+8-L aligned priest
+8-H high priest
+@-a soldier
+@-s sergeant
+@-h lieutenant
+@-f captain
+@-w watchman
+@-i watch captain
+@-H Medusa
+6-y Wizard of Yendor
+6-c Croesus
+6-C Charon
+ -w ghost
+ -k shade
+&-b water demon
+&-y horned devil
+&-w succubus
+&-x incubus
+&-T erinys
+&-r barbed devil
+&-s pit fiend
+&-t balrog
+7-r marilith
+7-R vrock
+7-s hezrou
+7-t nalfeshnee
+7-B mail daemon
+&-a bone devil
+&-W ice devil
+&-G Juiblex
+&-m Yeenoghu
+&-M Orcus
+&-n Geryon
+&-N Dispater
+&-o Baalzebub
+&-O Asmodeus
+7-m Demogorgon
+7-M Death
+7-n Pestilence
+7-o Famine
+&-Y djinni
+&-X sandestin
+;-b jellyfish
+;-r piranha
+;-w shark
+;-c giant eel
+;-B electric eel
+;-s kraken
+:-Y newt
+:-g gecko
+:-y iguana
+:-z baby crocodile
+:-h lizard
+:-p chameleon
+:-q crocodile
+:-R salamander
+w-q long worm tail
+9-a archeologist
+9-b barbarian
+9-c caveman
+9-C cavewoman
+9-h healer
+9-k knight
+9-m monk
+9-p priest
+9-P priestess
+9-n ranger
+9-r rogue
+9-s samurai
+9-t tourist
+9-V valkyrie
+9-w wizard
+6-l Lord Carnarvon
+6-p Pelias
+6-k Shaman Karnov
+6-h Hippocrates
+6-a King Arthur
+@-k Grand Master
+8-A Arch Priest
+6-o Orion
+6-t Master of Thieves
+6-S Lord Sato
+8-T Twoflower
+6-n Norn
+6-g Neferet the Green
+&-R Minion of Huhetotl
+6-H Thoth Amon
+D-m Chromatic Dragon
+H-x Cyclops
+D-t Ixoth
+6-K Master Kaen
+&-S Nalzok
+s-n Scorpius
+6-A Master Assassin
+6-J Ashikaga Takauji
+H-n Lord Surtur
+@-l Dark One
+8-a abbot
+8-b apprentice
+8-c chieftain
+8-g guide
+8-h hunter
+8-j ninja
+8-n neanderthal
+8-p page
+8-r roshi
+8-s student
+8-t attendant
+8-u thug
+8-w warrior
+8-y acolyte

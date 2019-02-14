@@ -1,0 +1,234 @@
+ K dark part of a room
+|d wall 0
+-d wall 1
+{Rd wall 2
+{Zd wall 3
+{Ld wall 4
+{Jd wall 5
+{Xd wall 6
+{Td wall 7
+{Wd wall 8
+{Fd wall 9
+{Yd wall 10
+#-O doorway
+#-H open door
+#-V open vertical door
+#-h closed door
+#-v closed vertical door
+#-b iron bars
+#-P lowered drawbridge
+#-Q lowered vertical drawbridge
+#-p raised drawbridge
+#-q raised vertical drawbridge
+#-d corridor
+#-D lit corridor
+<-w staircase up
+>-w staircase down
+<-n ladder up
+>-n ladder down
+}-l altar
+}-g grave
+}-h opulent throne
+}-t tree
+}-s sink
+}-f fountain
+}-p pool of water
+}-i ice
+}-r molten lava
+}-a air
+}-c cloud
+}-w water
+^-a arrow trap
+^-d dart trap
+^-f falling rock trap
+^-s squeaky board
+^-b bear trap
+^-l land mine
+^-r rolling boulder trap
+^-z sleeping gas trap
+^-R rust trap
+^-F fire trap
+^-p pit
+^-P spiked pit
+^-h hole
+^-H trap door
+^-t teleportation trap
+^-T level teleporter
+^-M magic portal
+^-w web
+^-Y statue trap
+^-m magic trap
+^-A anti-magic field
+^-y polymorph trap
+]-A wall A
+]-B wall B
+]-C wall C
+]-D wall D
+]-d cmap / dig beam
+]-c cmap / camera flash
+]-l cmap / thrown boomerang, open left
+]-r cmap / thrown boomerang, open right
+]-1 cmap / magic shield 1
+]-2 cmap / magic shield 2
+]-3 cmap / magic shield 3
+]-4 cmap / magic shield 4
+/(B cmap / swallow top left
+-(B cmap / swallow top center
+\)B cmap / swallow top right
+|(B cmap / swallow middle left
+|)B cmap / swallow middle right
+\(B cmap / swallow bottom left
+-)B cmap / swallow bottom center
+/)B cmap / swallow bottom right
+/[K explosion dark 0
+-[K explosion dark 1
+\]K explosion dark 2
+|[K explosion dark 3
+ [K explosion dark 4
+|]K explosion dark 5
+\[K explosion dark 6
+-]K explosion dark 7
+/]K explosion dark 8
+/[G explosion noxious 0
+-[G explosion noxious 1
+\]G explosion noxious 2
+|[G explosion noxious 3
+ [G explosion noxious 4
+|]G explosion noxious 5
+\[G explosion noxious 6
+-]G explosion noxious 7
+/]G explosion noxious 8
+/[y explosion muddy 0
+-[y explosion muddy 1
+\]y explosion muddy 2
+|[y explosion muddy 3
+ [y explosion muddy 4
+|]y explosion muddy 5
+\[y explosion muddy 6
+-]y explosion muddy 7
+/]y explosion muddy 8
+/[B explosion wet 0
+-[B explosion wet 1
+\]B explosion wet 2
+|[B explosion wet 3
+ [B explosion wet 4
+|]B explosion wet 5
+\[B explosion wet 6
+-]B explosion wet 7
+/]B explosion wet 8
+/[M explosion magical 0
+-[M explosion magical 1
+\]M explosion magical 2
+|[M explosion magical 3
+ [M explosion magical 4
+|]M explosion magical 5
+\[M explosion magical 6
+-]M explosion magical 7
+/]M explosion magical 8
+/[R explosion fiery 0
+-[R explosion fiery 1
+\]R explosion fiery 2
+|[R explosion fiery 3
+ [R explosion fiery 4
+|]R explosion fiery 5
+\[R explosion fiery 6
+-]R explosion fiery 7
+/]R explosion fiery 8
+/[C explosion frosty 0
+-[C explosion frosty 1
+\]C explosion frosty 2
+|[C explosion frosty 3
+ [C explosion frosty 4
+|]C explosion frosty 5
+\[C explosion frosty 6
+-]C explosion frosty 7
+/]C explosion frosty 8
+|=B zap 0 0
+-=B zap 0 1
+\=B zap 0 2
+/=B zap 0 3
+|=R zap 1 0
+-=R zap 1 1
+\=R zap 1 2
+/=R zap 1 3
+|=W zap 2 0
+-=W zap 2 1
+\=W zap 2 2
+/=W zap 2 3
+|=F zap 3 0
+-=F zap 3 1
+\=F zap 3 2
+/=F zap 3 3
+|=k zap 4 0
+-=k zap 4 1
+\=k zap 4 2
+/=k zap 4 3
+|=X zap 5 0
+-=X zap 5 1
+\=X zap 5 2
+/=X zap 5 3
+|=N zap 6 0
+-=N zap 6 1
+\=N zap 6 2
+/=N zap 6 3
+|=g zap 7 0
+-=g zap 7 1
+\=g zap 7 2
+/=g zap 7 3
+?-0 warning 0
+?-1 warning 1
+?-2 warning 2
+?-3 warning 3
+?-4 warning 4
+?-5 warning 5
+|g sub mine walls 0
+-g sub mine walls 1
+{Rg sub mine walls 2
+{Zg sub mine walls 3
+{Lg sub mine walls 4
+{Jg sub mine walls 5
+{Xg sub mine walls 6
+{Tg sub mine walls 7
+{Wg sub mine walls 8
+{Fg sub mine walls 9
+{Yg sub mine walls 10
+|h sub gehennom walls 0
+-h sub gehennom walls 1
+{Rh sub gehennom walls 2
+{Zh sub gehennom walls 3
+{Lh sub gehennom walls 4
+{Jh sub gehennom walls 5
+{Xh sub gehennom walls 6
+{Th sub gehennom walls 7
+{Wh sub gehennom walls 8
+{Fh sub gehennom walls 9
+{Yh sub gehennom walls 10
+|k sub knox walls 0
+-k sub knox walls 1
+{Rk sub knox walls 2
+{Zk sub knox walls 3
+{Lk sub knox walls 4
+{Jk sub knox walls 5
+{Xk sub knox walls 6
+{Tk sub knox walls 7
+{Wk sub knox walls 8
+{Fk sub knox walls 9
+{Yk sub knox walls 10
+|s sub sokoban walls 0
+-s sub sokoban walls 1
+{Rs sub sokoban walls 2
+{Zs sub sokoban walls 3
+{Ls sub sokoban walls 4
+{Js sub sokoban walls 5
+{Xs sub sokoban walls 6
+{Ts sub sokoban walls 7
+{Ws sub sokoban walls 8
+{Fs sub sokoban walls 9
+{Ys sub sokoban walls 10
+.d floor of a room
+.g sub mine floor
+.s sub sokoban floor
+.k sub knox floor
+.h sub gehennom floor
+.q sub quest floor
+.a sub astral floor

@@ -1,0 +1,106 @@
+
+TILE Credits
+------------
+
+Window ports can optionally make use of the tiles (pictures for NetHack
+symbols) found in this directory.  They are distributed in a text format
+with routines to help in converting them to a system's preferred format
+and using them there.  
+
+The original 16x16 tiles were provided by Warwick Allison.  The 16x16
+tiles currently in glHack are from NetHack 3.4.0.
+
+The 32x32 and 48x64 tilesets contain tiles from many different sets,
+mainly the ones in Slash'EM (in the win/share directory).  The
+majority of the tiles in glHack come from the "mi" sets, which were
+created by a number of different people under the direction of
+Mitsuhiro Itakura who also holds the copyright on these tiles.  
+The artists were:
+
+	Mitsuhiro Itakura
+	Haruko Numata
+	Edger
+	ZMYDaino
+	Wan'ichi
+	Tatsuya
+
+Some other 32x32 tiles came from the "alg" set, which were imported
+from AllegroHack, written by Kelly Youngblood.  The artists were:
+
+	Kelly Youngblood
+	Paul Pliska
+	John Harris
+
+One or two of the 32x32 tiles are from the "aw" set which was was
+contributed by Andrew Walker.
+
+A few of the 32x32 tiles were created by me (Andrew Apted), including
+the spider web, buckled boots, eucalytpus leaf, and six new floor
+tiles at the end, and smoothing out some of the enlarged 16x16 tiles
+(mainly traps and sokoban & gehenom walls) to make them look better.
+
+
+TILE File Format
+----------------
+
+Tile files have the extension ".txt".  They start with a palette
+header like:
+
+A = (0, 0, 0)
+...
+P = (255, 255, 255)
+
+and then each tile has an entry like:
+
+# tile 292 (comment identifying tile)
+{
+  AAAAGHPAAAAACDAA
+  AAAFGDEMLOCNAAAA
+  ...
+}
+
+The color characters consist of uppercase letters, lowercase letters,
+and digits.  Tile sets which require more than 62 colors can use two
+character color keys (with additional `_' and `$' characters), giving
+up to 4096 colors.  All keys in any one file must be the same size.
+
+For files with two character color keys, the initial keys must begin
+with a `_', allowing them to be differentated.
+
+
+MODEL Spec Format
+-----------------
+
+Spec files have the extension ".tsp" (Tile SPec), and define the 3D
+model information for each tile.  The tiles must match the names and
+order in the 2D tileset files.  Each entry, if fully specified, would
+look like:
+
+# tile 292 (comment identifying tile)
+{
+  model = foobar.md2
+  skin  = foobar.png
+  material = FooBar
+  light = FooBar
+  scale = 1
+  rotate = 0
+  flags = ABXY
+}
+
+All keywords except "model" and "skin" can be left out and will take
+on default values.
+
+Flags are a group of letters.  The current flags are:
+
+   R - Rotates slowly.  Used for gems and rings.
+   
+   F - Floor-less (a background floor should not be drawn).  Used for
+       the down staircase, pits, and solid walls (where the floor
+       would be hidden).
+   
+   M - Monsters/objects allowed.  When the midground (e.g. a fountain
+       or solid wall) overlaps the foreground (monster or object),
+       then the code normally draws only the foreground.  The `M' flag
+       is used by midgrounds to allow the foreground to be drawn too,
+       e.g. the "doorway" model.
+ 

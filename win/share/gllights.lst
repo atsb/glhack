@@ -1,0 +1,26 @@
+#
+# Special lights
+# 
+Ambient         1.5  0.5    0.0  1  0  0  -
+Player          0.0  40.0   0.0  0  1  0  - 
+
+#
+# Object lights
+#
+Lamp            0.0  250.0  0.0  0  1  0  -
+BrassLantern    0.0  250.0  0.0  0  1  0  -
+OilPotion       0.0  80.0   0.0  0  1  0  -
+Candle          0.0  100.0  0.0  0  1  0  -
+Candelabrum     0.0  500.0  0.0  0  1  0  -
+Sword           0.0  500.0  0.0  0  1  0  -
+
+#
+# Monster Lights
+#
+YellowLight     0.0  50.0   0.0  0  1  0  -
+BlackLight      0.0  50.0   0.0  0  1  0  -
+ShockingSphere  0.0  50.0   0.0  0  1  0  -
+FlamingSphere   0.0  100.0  0.0  0  1  0  -
+FireVortex      0.0  100.0  0.0  0  1  0  -
+FireElemental   0.0  100.0  0.0  0  1  0  -
+

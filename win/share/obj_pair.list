@@ -1,0 +1,430 @@
+).2 two-handed sword
+).a angled poleaxe / halberd
+).A athame
+).b broadsword
+).B long poleaxe / bardiche
+).c crossbow bolt
+).C curved sword / scimitar
+).d dagger
+).D dart
+).E scalpel
+).f flail
+).F forked polearm / spetum
+).g pruning hook / guisarme
+).G single-edged polearm / glaive
+).h hooked polearm / bill-guisarme
+).H pronged polearm / lucern hammer
+).i beaked polearm / bec de corbin
+).j throwing spear / javelin
+).k knife
+).K samurai sword / katana
+).l lance
+).L long sword
+).m mace
+).M morning star
+).P broad pick / dwarvish mattock
+).p pole sickle / fauchard
+).r hilted polearm / ranseur
+).S short sword
+).s spear
+).T thonged club / aklys
+).t trident
+).U long samurai sword / tsurugi
+).u throwing star / shuriken
+).V pole cleaver / voulge
+).v vulgar polearm / partisan
+).W broad short sword / dwarvish short sword
+).w war hammer
+).x axe
+).X double-headed axe / battle-axe
+).y arrow
+).Y bamboo arrow / ya
+).z stiletto
+).Z stout spear / dwarvish spear
+?-9 invisible monster
+]-k strange object
+)<a runed arrow / elven arrow
+)>a crude arrow / orcish arrow
+)-w silver arrow
+)<g boomerang
+)<P runed spear / elven spear
+)-l crude spear / orcish spear
+)-x silver spear
+)<D runed dagger / elven dagger
+)-L crude dagger / orcish dagger
+)-a silver dagger
+)-W worm tooth
+)-X crysknife
+)<S runed short sword / elven short sword
+)>s crude short sword / orcish short sword
+)-K silver saber
+)<B runed broadsword / elven broadsword
+)>r runed broadsword / runesword
+)<c club
+)<h rubber hose
+)<f staff / quarterstaff
+)<w bullwhip
+)<o bow
+)<O runed bow / elven bow
+)>b crude bow / orcish bow
+)<y long bow / yumi
+)<s sling
+)<C crossbow
+[-v conical hat / cornuthaum
+[-f conical hat / dunce cap
+[-h etched helmet / helm of brilliance
+[-a gray dragon scale mail
+[-D silver dragon scale mail
+[-T red dragon scale mail
+[-X white dragon scale mail
+[-S orange dragon scale mail
+[-B blue dragon scale mail
+[-G green dragon scale mail
+[-Z yellow dragon scale mail
+[-w gray dragon scales
+[-C silver dragon scales
+[-r red dragon scales
+[-R orange dragon scales
+[-b blue dragon scales
+[-g green dragon scales
+[-Y yellow dragon scales
+[-A crystal plate mail
+[-P bronze plate mail
+[-m Hawaiian shirt
+[-K mummy wrapping
+[-t robe
+[-L apron / alchemy smock
+[!L leather cloak
+[-M opera cloak / cloak of invisibility
+[-i blue and green shield / elven shield
+[-s red-eyed shield / orcish shield
+[-x polished silver shield / shield of reflection
+[.b banded mail
+[.c chain mail
+[.C crested helmet / helm of opposite alignment
+[.d dwarvish mithril-coat
+[.e elven mithril-coat
+[.h hard hat / dwarvish iron helm
+[.H hard shoes / iron shoes
+[.l large round shield / dwarvish roundshield
+[.L large shield
+[.p plate mail
+[.P plumed helmet / helmet
+[.r ring mail
+[.s scale mail
+[.S splint mail
+[.v visored helmet / helm of telepathy
+[.w white-handed shield / Uruk-hai shield
+[>B black dragon scale mail
+[>b black dragon scales
+[>o coarse mantelet / orcish cloak
+[>c crude chain mail / orcish chain mail
+[>C crude ring mail / orcish ring mail
+[>d dented pot
+[>f faded pall / elven cloak
+[>i iron skull cap / orcish helm
+[>l leather jacket
+[:o ornamental cope / cloak of magic resistance
+[:T T-shirt
+[:w white dragon scales
+[<b buckled boots / kicking boots
+[<c combat boots / speed boots
+[<f fedora
+[<g fencing gloves / gauntlets of dexterity
+[<h hiking boots / jumping boots
+[<C hooded cloak / dwarvish cloak
+[<B jackboots / high boots
+[<j jungle boots / water walking boots
+[<l leather armor
+[<L leather hat / elven leather helm
+[<m mud boots / elven boots
+[<o old gloves / leather gloves
+[<G padded gloves / gauntlets of fumbling
+[<p piece of cloth / cloak of displacement
+[<r riding boots / fumble boots
+[<R riding gloves / gauntlets of power
+[<O slippery cloak / oilskin cloak
+[<s small shield
+[<S snow boots / levitation boots
+[<u studded leather armor
+[<t tattered cape / cloak of protection
+[<w walking shoes / low boots
+=-y wooden / adornment
+=-K granite / gain strength
+=-a opal / gain constitution
+=-t clay / increase accuracy
+=-R coral / increase damage
+=-k black onyx / protection
+=-x moonstone / regeneration
+=-z tiger eye / searching
+=-g jade / stealth
+=-Q bronze / sustain ability
+=-s agate / levitation
+=-c topaz / hunger
+=-b sapphire / aggravate monster
+=-r ruby / conflict
+=-W diamond / warning
+=-X pearl / poison resistance
+=-d iron / fire resistance
+=-P brass / cold resistance
+=-Z copper / shock resistance
+=-e twisted / free action
+=-D steel / slow digestion
+=-w silver / teleportation
+=-Y gold / teleport control
+=-A ivory / polymorph
+=-G emerald / polymorph control
+=-E wire / invisibility
+=-L engagement / see invisible
+=-C shiny / protection from shape changers
+"-c circular / amulet of ESP
+"-s spherical / amulet of life saving
+"-o oval / amulet of strangulation
+"-t triangular / amulet of restful sleep
+"-p pyramidal / amulet versus poison
+"-q square / amulet of change
+"-v concave / amulet of unchanging
+"-h hexagonal / amulet of reflection
+"-g octagonal / amulet of magical breathing
+"-i Amulet of Yendor / cheap plastic imitation of the Amulet of Yendor
+"-a Amulet of Yendor
+(-Z lamp / oil lamp
+(-P lamp / magic lamp
+(-l expensive camera
+(-w looking glass / mirror
+(-C glass orb / crystal ball
+(-D lenses
+(-k blindfold
+(-m towel
+(-x figurine
+(-r magic marker
+(-s land mine object
+(-Q bell
+(-a silver bell / Bell of Opening
+(.b bear trap object
+(.c can of grease
+(.i iron hook / grappling hook
+(.k key / skeleton key
+(.l lock pick
+(.p pick-axe
+(.s stethoscope
+(.t tin opener
+(.T tinning kit
+(.w whistle / magic whistle
+(.W whistle / tin whistle
+(>b bugle
+(>c candelabrum / Candelabrum of Invocation
+(>l brass lantern
+(:T candle / tallow candle
+(:W candle / wax candle
+(:C credit card
+(:f horn / fire horn
+(:F horn / frost horn
+(:P horn / horn of plenty
+(:h horn / tooled horn
+(:i ice box
+(:u unicorn horn
+(<b bag / bag of holding
+(<B bag / bag of tricks
+(<S bag / oilskin sack
+(<s bag / sack
+(<c chest
+(<D drum / drum of earthquake
+(<d drum / leather drum
+(<F flute / magic flute
+(<f flute / wooden flute
+(<H harp / magic harp
+(<h harp / wooden harp
+(<l leash
+(<L large box
+(<a saddle
+d%Y corpse
+%-W egg
+%<C C-ration
+%<b candy bar
+%<c cram ration
+%<f food ration
+%<h huge chunk of meat
+%<K K-ration
+%<r meat ring
+%<M meat stick
+%<m meatball
+%<s slime mold
+%<t tripe ration
+%-h kelp frond
+%-g eucalyptus leaf
+%-r apple
+%-S orange
+%-G pear
+%-H melon
+%-Y banana
+%-R carrot
+%-i sprig of wolfsbane
+%-X clove of garlic
+%-Z lump of royal jelly
+%-A cream pie
+%-P fortune cookie
+%-Q pancake
+%-K lembas wafer
+%-c tin
+!-r ruby / gain ability
+!-M pink / restore ability
+!-R orange / confusion
+!-Y yellow / blindness
+!-G emerald / paralysis
+!-g dark green / speed
+!-c cyan / levitation
+!-d sky blue / hallucination
+!-B brilliant blue / invisibility
+!-m magenta / see invisible
+!-n purple-red / healing
+!-s puce / extra healing
+!-X milky / gain level
+!-z swirly / enlightenment
+!-L bubbly / monster detection
+!-w smoky / object detection
+!-A cloudy / gain energy
+!-x effervescent / sleeping
+!-k black / full healing
+!-Z golden / polymorph
+!-y brown / booze
+!-e fizzy / sickness
+!-l dark / fruit juice
+!-W white / acid
+!-p murky / oil
+!-K clear / water
+?-a ANDOVA BEGARIN / fire
+?-d DAIYEN FOOELS / enchant weapon
+?-D DUAM XNAHT / amnesia
+?-e ELAM EBOW / magic mapping
+?-E ELBIB YLOH / genocide
+?-f FOOBIE BLETCH
+?-F VE FORBRYDERNE / punishment
+?-g GARVEN DEH
+?-h HACKEM MUCHE / charging
+?-H VERR YED HORRE / light
+?-J JUYED AWK YACC / destroy armor
+?-k KERNOD WEL / identify
+?-K KIRJE / earth
+?-l LEP GEX VEN ZEA / create monster
+?-n NR 9 / confuse monster
+?-p PRATYAVAYAH / remove curse
+?-P PRIRUTSENIE / taming
+?-r READ ME
+?-t TEMOV
+?-T THARR / gold detection
+?-v VELOX NEB / stinking cloud
+?-V VENZAR BORGAVVE / teleportation
+?-x XIXAXA XOXAXA XUXAXA / scare monster
+?-y YUM YUM / food detection
+?-z ZELGO MER / enchant armor
+?-u unlabeled / blank paper
++:P parchment / dig
++:V vellum / magic missile
++:r ragged / fireball
++:e dog eared / cone of cold
++:m mottled / sleep
++:S stained / finger of death
++:c cloth / light
++-L leather / detect monsters
++:w white / healing
++-M pink / knock
++-r red / force bolt
++-R orange / confuse monster
++-Y yellow / cure blindness
++-O velvet / drain life
++-G light green / slow monster
++-g dark green / wizard lock
++-C turquoise / create monster
++-c cyan / detect food
++-B light blue / cause fear
++-b dark blue / clairvoyance
++-f indigo / cure sickness
++-m magenta / charm monster
++-n purple / haste self
++-o violet / detect unseen
++-p tan / levitation
++-h plaid / extra healing
++-y light brown / restore ability
++-z dark brown / invisibility
++-w gray / detect treasure
++:W wrinkled / remove curse
++:M dusty / magic mapping
++-Z bronze / identify
++-P copper / turn undead
++-x silvery / polymorph
++-Q gold / teleport away
++:g glittering / create familiar
++:s shining / cancellation
++:d dull
++:t thick / stone to flesh
++:T thin
++:b plain / blank paper
++:p papyrus / Book of the Dead
+/-D glass / light
+/-y balsa / secret door detection
+/-C crystal / enlightenment
+/-P maple / create monster
+/-z pine / wishing
+/-p oak / nothing
+/-q ebony / striking
+/-x marble / make invisible
+/-Z brass / speed monster
+/-Y copper / undead turning
+/-w silver / polymorph
+/-W platinum / cancellation
+/-E iridium / teleportation
+/.a aluminum / locking
+/.c curved / lightning
+/.h hexagonal / fire
+/.i iron / digging
+/.l long / death
+/.r runed / sleep
+/.s short / cold
+/.S spiked
+/.M steel / magic missile
+/.t tin / slow monster
+/.u uranium / probing
+/.z zinc / opening
+/-Q forked
+/-a jeweled
+$-Y gold piece
+*-W white / dilithium crystal
+*-X white / diamond
+*-r red / ruby
+*-R orange / jacinth
+*-b blue / sapphire
+*-k black / black opal
+*-g green / emerald
+*-Y yellow / citrine
+*-y yellowish brown / amber
+*-z yellowish brown / topaz
+*-l black / jet
+*-A white / opal
+*-Z yellow / chrysoberyl
+*-s red / garnet
+*-m violet / amethyst
+*-t red / jasper
+*>o black / obsidian
+*-S orange / agate
+*-h green / jade
+*-K white / worthless piece of white glass
+*-f blue / worthless piece of blue glass
+*-T red / worthless piece of red glass
+*-p yellowish brown / worthless piece of yellowish brown glass
+*-Q orange / worthless piece of orange glass
+*-P yellow / worthless piece of yellow glass
+*>g black / worthless piece of black glass
+*-i green / worthless piece of green glass
+*-n violet / worthless piece of violet glass
+*-w gray / luckstone
+*-x gray / loadstone
+*!x gray / touchstone
+*-a gray / flint
+*-L rock
+`-w boulder
+`-W statue
+]-O heavy iron ball
+]-Z iron chain
+]-a splash of venom / acid venom
+]-b splash of venom / blinding venom

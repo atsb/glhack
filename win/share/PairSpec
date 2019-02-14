@@ -1,0 +1,383 @@
+
+NetHack 3.3.1 Glyph Pairs
+=========================
+
+by Andrew Apted.
+
+
+Encoding glyphs as pairs
+------------------------
+
+Each glyph consists of three characters.  The method here encodes
+enough info to support both TILE based display and TEXT based display
+(with color).  For TEXT displays, are color is always specified
+(either explicitly or implicitly).  It does NOT encode the full
+NetHack glyph range (0 to MAX_GLYPH).
+
+The first character is the normal NetHack text character for the glyph
+(e.g. "d" for a dog, "." for the floor of a room), with a couple of
+exceptions.  
+
+The second character is a "meta" character that provides more
+information.  It is always non-alphanumeric.  The `-' character is
+used as the "nothing special" meta character.  
+
+The third character is always alphanumeric, and is the main way of
+distinguishing each pair (e.g. different monsters of the same class).
+Depending on the meta character, it is either a color specifier, or
+merely a differentiator (and the meta character implies a color).
+
+///--- The extra character(s) provides more information.
+///--- which is usually specific to the first character.  Most of the time a
+///--- color is specified (explicitly or implicitly) for TEXT displays.
+///--- 
+///--- The second character can be a "meta" character, which modifies the
+///--- meaning, and also signifies there is at least one more character.
+///--- Pets and ridden monsters work this way.  Meta characters are optional,
+///--- they get "shoved in" when required.
+///--- 
+///--- The final character(s) (i.e. all except the first char and any meta
+///--- character) are always alphanumeric.  Meta characters are always
+///--- non-alphanumeric.  Only one meta character can be used per glyph.
+
+
+MONSTERS
+--------
+
+For pets, the meta character is `+', for example "d+W".
+
+For ridden monsters, the meta character is `^', for example "u^y".
+
+For detected monsters, meta character is `/', for example "d/w".
+
+For corpses, meta character is `%'.  On TEXT displays, corpses should
+be drawn as a colored `%' char.
+
+In all these cases, the final character is the color letter.
+
+
+PLAYERS
+-------
+
+First character is `9', but should be rendered as `@' on a TEXT
+display.  The third character is the player's class:
+
+    (lowercase for male, uppercase for female)
+
+    a  : Archeologist    b  : Barbarian
+    c  : Caveman         h  : Healer
+    k  : Knight          m  : Monk
+    p  : Priest          n  : Ranger
+    r  : Rogue           s  : Samurai
+    t  : Tourist         v  : Valkyrie
+    w  : Wizard
+
+Players should be drawn bright white on a TEXT display (though
+different colors for different classes is a possibility).
+
+
+DEMONS
+------
+
+Most demons begin with `&'.  Some begin with `7' but should be endered
+as '&' on a TEXT display.  For both, the third character is a color.
+
+
+HUMANS
+------
+
+Humans (and a few others races) normally begin with `@', with the
+third character is a color.
+
+Some begin with a `6' or an `8', followed by a distinguishing letter.
+The ones with `8' should be drawn as a bright white `@' on a TEXT
+display, where the ones with `6' should be a normal magenta `@'.
+
+
+WARNINGS and other SPECIAL CASES
+--------------------------------
+
+The sequences and their text renderings are as follows:
+
+     "?-0"  -->  "0-W"
+     "?-1"  -->  "1-r"
+     "?-2"  -->  "2-r"
+     "?-3"  -->  "3-r"
+     "?-4"  -->  "4-m"
+     "?-5"  -->  "5-M"
+
+     "?-9"  -->  "I-K"   (invisible)
+     "w-q"  -->  "~-y"   (worm tail)
+
+The `NO_GLYPH' sequence is "$__".
+
+
+SWALLOWS
+--------
+
+First character is one of `|' `-' `/' `\'.
+
+Meta character is `(' for left side and top `-'.
+Meta character is `)' for right side and bottom `-'.
+
+Third character is the color.
+
+Example:
+
+       /(B  -(B  \)B
+
+       |(B       |)B
+
+       \(B  -)B  /)B
+
+
+EXPLOSIONS
+----------
+
+First character is one of `|' `-' `/' `\'.
+
+Meta character is `[' for left side, top `-' and center.
+Meta character is `]' for right side and bottom `-'.
+
+Third character is the color.
+
+Example:
+
+       /[R  -[R  \]R
+
+       |[R   [R  |]R       (Note space char at center)
+
+       \[R  -]R  /]R
+
+
+ZAPS
+----
+
+First character is one of `|' `-' `/' `\'.
+
+Meta character is `='.
+
+Third character is the color.
+
+
+TRAPS
+-----
+
+First character is `^'.  Third character identifies the trap:
+
+    a  : arrow             A  : anti-magic field
+    b  : bear
+    d  : dart
+    f  : falling rock      F  : fire
+    h  : hole              H  : trap door
+    l  : land mine
+    m  : magic             M  : magic-portal
+    p  : pit               P  : spiked pit
+    r  : rolling boulder   R  : rust
+    s  : squeaky board
+    t  : teleportation     T  : level teleporter
+    w  : web
+    y  : polymorph         Y  : statue
+    z  : sleeping gas
+
+Text colors must be looked up in a table.
+
+
+WALLS / FLOORS / DOORS
+----------------------
+
+First character is one of `|' `-' `{' `.' `#'.
+
+The `{' is used for wall corners.  The third character is:
+
+            +-  -+-  -+
+            |    |    |      R  T  Z
+
+            |    |    |
+            +-  -+-  -+      F  X  Y
+            |    |    |
+
+            |    |    |      L  W  J      
+            +-  -+-  -+      
+
+///--- @@@
+///--- For `#'
+///--- 
+///---     (uppercase used with "#" for lit corridor)
+///--- 
+///---     d  : Dungeons of Doom
+///---     g  : Gnomish Mines
+///---     s  : Sokoban
+///---     k  : Knox
+///---     h  : Gehennom (hell)
+///---     a  : Astral plane
+///---     q  : Quest
+
+
+DOORS
+-----
+
+The third character identifies the type of door:
+
+    (lowercase for closed, uppercase for open)
+
+    h  Horizontal door  
+    v  Vertical door
+    p  Horizontal drawbridge
+    q  Vertical drawbridge
+    b  Iron bars
+    o  Doorway (always open)
+
+    c  Corridor (lowercase normal, uppercase if lit)
+
+
+SCENERY / OTHER ITEMS
+---------------------
+
+First character is `}' or ']'.
+
+Third character is based on tilename.  Shown in quotes are the text
+character and color to use:
+
+    }-a  : air              " c"
+    }-c  : cloud            "#w"
+    }-f  : fountain         "{b"
+    }-g  : grave            "|w"
+    }-h  : throne           "\Y"
+    }-i  : ice              ".c"
+    }-l  : altar            "_w"
+    }-p  : pool of watera   "}b"
+    }-r  : molten lava      "}r"
+    }-s  : sink             "#w"
+    }-t  : tree             "#g"
+    }-w  : water            "}b"
+
+    ]-d  : dig beam         "*W"
+    ]-c  : camera flash     "!W"
+    ]-l  : thrown boomerang, open left    ")y"
+    ]-r  : thrown boomerang, open right   "(y"
+    ]-1  : magic shield 1   "0B"
+    ]-2  : magic shield 2   "#B"
+    ]-3  : magic shield 3   "@B"
+    ]-4  : magic shield 4   "*B"
+    ]-k  : strange object   "]k"
+    ]-a  : splash of venom / acid venom        ".y"
+    ]-b  : splash of venom / blinding venom    ".y"
+    ]-O  : iron ball        "0c"
+    ]-Z  : iron chain       "_c"
+
+    ]-A  : zigzag wall A    "|K"
+    ]-B  : zigzag wall B    "-K"
+    ]-C  : zigzag wall C    "\K"
+    ]-D  : zigzag wall D    "/K"
+
+
+SCROLLS
+-------
+
+First character is `?'.  Third char:
+
+    a : ANDOVA BEGARIN
+    d : DAIYEN FOOELS       D : DUAM XNAHT
+    e : ELAM EBOW           E : ELBIB YLOH
+    f : FOOBIE BLETCH       F : VE FORBRYDERNE
+    g : GARVEN DEH
+    h : HACKEM MUCHE        H : VERR YED HORRE
+    j : JUYED AWK YACC
+    k : KERNOD WEL          K : KIRJE
+    l : LEP GEX VEN ZEA
+    n : NR 9
+    p : PRATYAVAYAH         P : PRIRUTSENIE
+    R : READ ME
+    t : TEMOV               T : THARR
+    u : unlabeled
+    v : VELOX NEB           V : VENZAR BORGAVVE
+    x : XIXAXA XOXAXA
+    y : YUM YUM
+    z : ZELGO MER
+
+Under a TEXT display, all scrolls are bright white.
+
+
+AMULETS
+-------
+
+First character is `"'.  Second char:
+
+    a  : Amulet of Yendor
+    i  : Amulet of Yendor (cheap plastic imitation)
+    c  : circular
+    v  : concave
+    h  : hexagonal
+    g  : octagonal
+    o  : oval
+    p  : pyramidal
+    s  : spherical
+    q  : square
+    t  : triangular
+
+Under a TEXT display, all amulets are normal cyan.
+
+
+OBJECTS
+-------
+
+First character is object type.
+
+Without a meta character, second character is a color letter.
+
+There are four meta characters: `<', `>', `:' and `.'.  Each one
+implies a certain text color, depending on the type of object (armour,
+weapon, etc).  The third character is only for differentation (usually
+a letter based on the object name).
+
+Colors implied:
+  
+             )< == y   ). == c
+
+   (> == Y   (< == y   (. == c  (: == W
+
+   [> == k   [< == y   [. == c  [: == W
+
+   *> == k   %< == y   /. == c  +: == W
+
+
+COLOR CODES
+===========
+
+Multiple letters can refer to the same basic color, so that glyphs can
+be differentated on a TILED display.  They don't need to be
+differentated on a TEXT display (though that's a possibility).
+
+    jkl  : black                   JKL  : grey
+    rst  : normal red              RST  : bright red
+    ghi  : normal green            GHI  : bright green
+    bfv  : normal blue             BFV  : bright blue
+    yzpq : normal yellow / brown   YZPQ : bright yellow
+    mno  : normal magenta          MNO  : bright magenta
+    cde  : normal cyan             CDE  : bright cyan
+    wxa  : normal white            WXA  : bright white
+
+
+SUMMARY OF META CHARS
+=====================
+
+   +  : pets
+   ^  : ridden monsters
+   /  : detected monsters
+   %  : corpses
+   
+   =  : zaps
+   (  : swallows (left)
+   )  : swallows (right)
+   [  : explosions (left)
+   ]  : explosions (right)
+
+   !  : generic differentator 1
+   *  : generic differentator 2
+
+   >  : object differentator 1 (bright yellow)
+   <  : object differentator 2 (normal yellow / brown)
+   .  : object differentator 3 (normal cyan)
+   :  : object differentator 4 (bright white)
+

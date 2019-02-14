@@ -1,0 +1,55 @@
+
+EdTile README
+=============
+
+by Andrew Apted.
+
+Last updated: 23rd December 2002.
+
+
+INTRO
+-----
+
+EdTile will be an editor and browser for NetHack tile files (located
+in the win/share directory and have the ".txt" extension)
+
+NOTE: this is real bleeding edge stuff right now.  The editor in
+      particular is far from being even slightly useful...
+
+
+UTILITY SUMMARY
+---------------
+
+edtile
+	Supposed to be a tile editor for ".TXT" files.  Currently it
+        makes a pretty good tile viewer.
+
+makeset
+        Makes the final tilesets (each one is just one big PPM image)
+        by loading all the individual .TXT tilesets (e.g. mon32aja +
+        obj32aja + oth32aja --> gltile32.ppm).  Handles the fonts as
+        well.
+
+pngify.sh
+	Converts the PPM output files from `makeset' to PNG files
+        which glHack requires.
+
+renumber
+	Small utility to put all the tiles in a .TXT tileset file into
+        strict numerical order (i.e. the numbers that appear on the
+        #tile lines).
+
+saveppm
+	Takes a tileset (.TXT format) and writes out a PPM file
+        containing all the tiles.
+
+loadppm
+	Takes a PPM image, chops it up into chunks and writes out a
+        tileset (.TXT file).  Requires a colors file, for example:
+        win/share/colors32.lst.
+        
+samecmap
+	Takes a reference tileset and an input tileset, converts the
+        input to use the same colormap as the reference, and writes it
+        out as a new tileset (.TXT format).
+ 

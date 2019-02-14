@@ -1,0 +1,93 @@
+
+G L H A C K   T O D O
+=====================
+
+BEFORE THE 1.5 RELEASE
+------------------------------------------------------------------------
+DONE:
+
+TODO:
+
+-  Port to SDL2 (won't be easy)
+-  Clean up some of the GL routines (messy macros)
+-  Rewrite the Makefile to be portable (doesn't work on BSD and UNIX)
+-  Remove the install paths and allow user paths (portable install)
+-  Rebase to 3.6 (the biggest job)
+
+BEFORE THE 1.2 RELEASE
+------------------------------------------------------------------------
+
+DONE:  Credit section in README.GL (use bits from 'man nethack').
+
+ 
+SOMETIME SOON
+------------------------------------------------------------------------
+
+-  Put some documentation on the web page.
+
+-  Command line option for windowtype (--sdl and --gl).
+
+-  Make a note of `number_pad' option in README/man page.
+
+-  Check out (and document) these keywords in the config file:
+
+      NAME, ROLE or CHARACTER, DOGNAME, CATNAME
+
+-  Write (convert) manpage for glhack_recover.
+
+-  Document NETHACKOPTIONS / GLHACKOPTIONS in manpage.
+
+-  Put some new screenies on the web page.
+ 
+
+DO IT EVENTUALLY
+------------------------------------------------------------------------
+
+-  Implement custom config screen.
+
+-  Screenshots for SW mode, and pop up a window when done.
+
+-  "make uninstall"
+
+-  Improve the following chunky 32x32 tiles:
+
+       centipede   yeti        dwarf zombie
+       zruty       Aleax       sasquatch     doppelganger
+       Oracle      watchman    watch captain
+       jellyfish   shark       piranha
+       prisoner    sandestin   baby crocodile 
+
+       mimics (small/large/giant)
+       mummies (kobold/orc/dwarf/elf/human/ettin/giant)
+       ogres (normal/lord/king)
+       jabberwocks (normal/vorpal)
+       various quest leaders, servants, baddies.
+
+
+MISCELLANEOUS IDEAS
+------------------------------------------------------------------------
+
+-  A new font around 26-30 pixels high would be nice...
+ 
+-  mousewheel support ?
+
+-  AllegroHack (by Kelly Youngblood) has some interesting things:
+
+   +  aura effect when praying, and replacing the shield tiles.
+   +  screen fading for portals (other telep?).
+   +  female versions of player tiles.
+   +  substitue tiles for certain artifacts (firesword etc).
+   +  statues drawn as a grey-ified monster tile.
+   +  corpses tinted to match the text color.
+   +  dim the map when dead.
+ 
+
+SLASH'EM TODO
+------------------------------------------------------------------------
+
+*  fix txtmerge and txtbg programs to use palette.txt (via option).
+
++  improve tile2png to create palettized images.
+
++  improve Install.GL document in win/gl directory.
+

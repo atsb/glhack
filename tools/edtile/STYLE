@@ -1,0 +1,71 @@
+
+CONVENTIONS & DECISIONS
+=======================
+
+Filename Policy
+---------------
+
+Linux and Win32 (etc) have some different conventions for filenames,
+including directory char and case sensitivity.  The rules are:
+
+  (a) Use the platform specific convention for all internal and
+      external uses.
+
+  (b) When parsing filenames from external files, check for the
+      opposite convention and do a conversion if necessary.
+
+  (c) Choose lowercase names when there is a choice.
+
+
+C++ Usage
+---------
+
+ + Use namespaces.
+
+ + Don't use exceptions.  The code needs to be portable, and using
+   exceptions makes that less likely.
+
+ + Don't use RTTI.
+
+ + Use signed integers for everything, rather than a mixture of signed
+   and unsigned, which gets painful as you can't compare them without
+   warnings from the compiler.
+
+ + Use float directly, rather than define float_t.
+
+ + BOOLEAN: rely on the `bool' type as standard.
+
+ + Use `0' instead of `NULL'.
+
+ + Memory allocation: all basic allocation done with `new' and
+   `delete'.  (i.e. nothing special like Z_Malloc, Z_Free).
+ 
+
+Coding style
+------------
+
+ + Indent is two space characters.
+
+ + Comments usually _after_ the thing they comment on, for both
+   class/struct members (aka. instance variables) and
+   functions/methods.
+
+ + Comments usually with //, using the /* */ style where special
+   emphasis is necessary.
+ 
+ + APIs are documented in their _header_ file (rather than body).
+   Doesn't include local functions or data, of course.
+
+ + Variable names lower case, possibly with `_' separators.  Function
+   and class names usually in this style: FooBarConvert.
+ 
+ + Variables/fields that count something have the prefix "num".
+
+ + The header guarding constant is like this: __DIRNAME_FILENAME_H__
+
+ + American english ("color" instead of "colour").
+
+ + Number of minus signs in "//-------" lines : 72.
+ 
+ + Prefer "load" over "read" (maybe "save" over "write").
+
